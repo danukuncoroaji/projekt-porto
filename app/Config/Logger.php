@@ -2,8 +2,8 @@
 
 namespace Config;
 
-use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Log\Handlers\FileHandler;
+use CodeIgniter\Config\BaseConfig;
 
 class Logger extends BaseConfig
 {
