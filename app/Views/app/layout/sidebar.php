@@ -53,17 +53,8 @@
             <?php } ?>
 
             <?php if ($session->get('level') == 1) {?>
-            <li <?php if(str_contains(base_url(uri_string()),'galeri')){ ?> class="active-page" <?php } ?>>
-                <a href="#"><i class="material-icons-two-tone">photo_library</i>Galeri<i
-                        class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                <ul class="sub-menu">
-                    <li>
-                        <a href="<?php echo base_url('/app/galeri'); ?>">List</a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url('/app/galeri/tambah'); ?>">Tambah</a>
-                    </li>
-                </ul>
+                <li <?php if(str_contains(base_url(uri_string()),'galeri')){ ?> class="active-page" <?php } ?> >
+                <a href="<?php echo base_url('/app/galeri'); ?>"><i class="material-icons-two-tone">photo_library</i>Galeri</a>
             </li>
             <?php } ?>
 
