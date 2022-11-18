@@ -14,7 +14,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url(''); ?>">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="<?= base_url('app/user'); ?>">User</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('app/admin'); ?>">Admin</a></li>
                     <li class="breadcrumb-item active" aria-current="page"><?= $user['nama']; ?></li>
                 </ol>
             </nav>
@@ -22,9 +22,9 @@
         </div>
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title">Form Tambah User</h5>
+                <h5 class="card-title">Form Edit Admin</h5>
             </div>
-            <form method="POST" action="<?= base_url('app/user/update/'.$user['id']); ?>" id="form-tambah">
+            <form method="POST" action="<?= base_url('app/admin/update/'.$user['id']); ?>" id="form-tambah">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 col-lg-12 mb-4">
@@ -53,9 +53,8 @@
                             <div class="form-group">
                                 <label for="nama" class="form-label">Level</label>
                                 <select name="level" class="form-control" name="level">
-                                    <option value="1" selected>Admin</option>
-                                    <option value="2">Pegawai</option>
-                                    <option value="3">Warga</option>
+                                    <option value="1" <?php if($user['level'] == 1){echo'selected';} ?>>Owner</option>
+                                    <option value="2" <?php if($user['level'] == 2){echo'selected';} ?>>Admin</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -66,6 +65,26 @@
                                 <?php if($validation->getError('password')){ ?>
                                 <small class="text-danger">
                                     <?php echo $validation->getError('password'); ?>
+                                </small>
+                                <?php } ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="no_hp" class="form-label">No Hp</label>
+                                <input type="text"
+                                    class="form-control <?php if($validation->getError('no_hp')){ echo 'is-invalid'; } ?>"
+                                    name="no_hp" id="no_hp" aria-describedby="no_hp" value="<?= $user['no_hp']; ?>">
+                                <?php if($validation->getError('no_hp')){ ?>
+                                <small class="text-danger">
+                                    <?php echo $validation->getError('no_hp'); ?>
+                                </small>
+                                <?php } ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat" class="form-label">Alamat</label>
+                                <textarea name="alamat" class="form-control <?php if($validation->getError('alamat')){ echo 'is-invalid'; } ?>"><?= $user['alamat']; ?></textarea>
+                                <?php if($validation->getError('alamat')){ ?>
+                                <small class="text-danger">
+                                    <?php echo $validation->getError('alamat'); ?>
                                 </small>
                                 <?php } ?>
                             </div>

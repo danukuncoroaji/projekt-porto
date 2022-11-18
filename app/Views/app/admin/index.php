@@ -22,15 +22,10 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url(''); ?>">Beranda</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Customer</li>
+                    <li class="breadcrumb-item active" aria-current="page">Admin</li>
                 </ol>
             </nav>
-            <h1>Customer</h1>
-            <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis viverra dapibus.<br>Maecenas
-                eleifend augue convallis tellus rhoncus scelerisque. Aliquam eu nunc sit amet velit pharetra cursus, <a
-                    href="#">disini</a>.
-            </span>
+            <h1>Admin</h1>
         </div>
         <div class="card">
             <div class="card-body">
@@ -39,54 +34,53 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>No HP</th>
+                            <th>Username</th>
                             <th>Level</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        $i= 1;
+                        foreach($users as $user){ ?>
                         <tr>
-                            <td>1</td>
-                            <td>Lorem ipsum dolor</td>
-                            <td>081234124645</td>
-                            <td><span class="badge badge-primary">Owner</span></td>
                             <td>
-                                <a href="<?= base_url('app/customer/detail/1'); ?>"
-                                    class="btn btn-info btn-sm">Detail</a>
+                                <?= $i; ?>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Lorem ipsum dolor</td>
-                            <td>081234124645</td>
-                            <td><span class="badge badge-secondary">Admin</span></td>
                             <td>
-                                <a href="<?= base_url('app/customer/detail/1'); ?>"
-                                    class="btn btn-info btn-sm">Detail</a>
+                                <?= $user['nama']; ?>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Lorem ipsum dolor</td>
-                            <td>081234124645</td>
-                            <td><span class="badge badge-secondary">Admin</span></td>
                             <td>
-                                <a href="<?= base_url('app/customer/detail/1'); ?>"
-                                    class="btn btn-info btn-sm">Detail</a>
+                                <?= $user['username']; ?>
                             </td>
+                            <td>
+                                <?= $user['level']; ?>
+                            </td>
+
+                            <td>
+                                <a href="<?= base_url('app/admin/edit/'. $user['id']); ?>"
+                                    class="btn btn-warning btn-sm">Edit</a>
+                                <a href="<?= base_url('app/admin/delete/'. $user['id']); ?>"
+                                    class="btn btn-danger btn-sm">Hapus</a>
+                            </td>
+
                         </tr>
+                        <?php $i++; } ?>
                     </tbody>
                     <tfoot>
                         <tr>
-                        <th>No</th>
+                            <th>No</th>
                             <th>Nama</th>
-                            <th>No Hp</th>
-                            <th>Jumlah Reservasi</th>
-                            <th>Status</th>
+                            <th>Username</th>
+                            <th>Level</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>
                 </table>
+            </div>
+            <div class="card-footer">
+                <a href="<?= base_url('app/admin/tambah'); ?>" class="btn btn-success"><i
+                        class="material-icons">add</i> Tambah Admin</a>
             </div>
         </div>
     </div>
