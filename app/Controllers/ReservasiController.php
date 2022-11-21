@@ -84,11 +84,13 @@ class ReservasiController extends BaseController
                 $sub = 0;
                 if($this->isWeekend($date->format("Y-m-d"))){
                     $sub = $harga_weekend;
+                    $status = 'weekend';
                 }else if(!$this->isWeekend($date->format("Y-m-d"))){
                     $sub = $harga_weekday;
+                    $status = 'weekday';
                 }
                 $total += $sub;
-                array_push($data,[$date->format("Y-m-d"),$sub]);
+                array_push($data,[$date->format("Y-m-d"),$sub,$status]);
             }
 
             $this->data['suite'] = $this->suite->find($this->request->getVar('suite'))['nama'];

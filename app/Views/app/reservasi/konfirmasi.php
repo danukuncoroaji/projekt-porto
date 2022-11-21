@@ -54,6 +54,7 @@
                                     <tr>
                                         <td>No</td>
                                         <td>Tanggal</td>
+                                        <td>Ket</td>
                                         <td class="text-end">Harga</td>
                                     </tr>
                                 </thead>
@@ -64,7 +65,9 @@
                                         <tr>
                                             <td><?= $i; ?></td>
                                             <td><?= $data[0]; ?></td>
+                                            <td><?= $data[2]; ?></td>
                                             <td class="currency text-end"><?= $data[1]; ?></td>
+                                            
                                         </tr>
                                     <?php
                                         $i++;
@@ -72,6 +75,7 @@
                                     <tr>
                                         <td></td>
                                         <td>Total</td>
+                                        <td></td>
                                         <td class="currency text-end"><?= $total; ?></td>
                                     </tr>
                                 </tbody>
