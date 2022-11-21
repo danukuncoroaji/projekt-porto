@@ -15,13 +15,9 @@
 
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link href="<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/plugins/perfectscroll/perfect-scrollbar.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/plugins/pace/pace.css'); ?>" rel="stylesheet">
@@ -37,8 +33,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url('assets/images/neptune.png'); ?>" />
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/neptune.png'); ?>" />
 
-        <!-- Javascripts -->
-        <script src="<?php echo base_url('assets/plugins/jquery/jquery-3.5.1.min.js'); ?>"></script>
+    <!-- Javascripts -->
+    <script src="<?php echo base_url('assets/plugins/jquery/jquery-3.5.1.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/plugins/perfectscroll/perfect-scrollbar.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/plugins/pace/pace.min.js'); ?>"></script>
@@ -59,8 +55,8 @@
 </head>
 
 <body>
-<div class="app full-width-header align-content-stretch d-flex flex-wrap">
-        <?=$this->include('app/layout/sidebar')?>
+    <div class="app full-width-header align-content-stretch d-flex flex-wrap">
+        <?= $this->include('app/layout/sidebar') ?>
         <div class="app-container">
             <div class="app-header">
                 <nav class="navbar navbar-light navbar-expand-lg">
@@ -68,8 +64,7 @@
                         <div class="navbar-nav" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link hide-sidebar-toggle-button" href="#"><i
-                                            class="material-icons">first_page</i></a>
+                                    <a class="nav-link hide-sidebar-toggle-button" href="#"><i class="material-icons">first_page</i></a>
                                 </li>
                             </ul>
 
@@ -87,11 +82,33 @@
             <div class="app-content">
                 <div class="content-wrapper">
                     <div class="container-fluid">
-                        <?=$this->renderSection('content')?>
+                        <?= $this->renderSection('content') ?>
                     </div>
                 </div>
             </div>
         </div>
 </body>
-</html>
+<script>
+    $('.currency').each(function() {
+        $(this).html(formatRupiah($(this).html(), 'Rp '));
+    });
 
+    function formatRupiah(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        // tambahkan titik jika yang di input sudah menjadi angka ribuan
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp ' + rupiah : '');
+    }
+</script>
+
+</html>

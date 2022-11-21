@@ -38,47 +38,26 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
                             <th>Suite</th>
                             <th>Check in</th>
                             <th>Check out</th>
+                            <th>Tanggal</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        $i = 1;
+                        foreach($reservasis as $reservasi){ ?>
                         <tr>
-                            <td>1</td>
-                            <td>Lorem ipsum dolor</td>
-                            <td>Mauris faucibus</td>
-                            <td>01-01-2023</td>
-                            <td>02-01-2023</td>
-                            <td>
-                                <a href="<?= base_url('app/reservasi/detail/1'); ?>"
-                                    class="btn btn-info btn-sm">Detail</a>
-                            </td>
+                            <td><?= $i; ?></td>
+                            <td><?= $reservasi['suite_name']; ?></td>
+                            <td><?= $reservasi['check_in']; ?></td>
+                            <td><?= $reservasi['check_out']; ?></td>
+                            <td><?= $reservasi['created_at']; ?></td>
+                            <td><a href="#" class="btn btn-info btn-sm">Detail</a></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Lorem ipsum dolor</td>
-                            <td>Mauris faucibus</td>
-                            <td>03-01-2023</td>
-                            <td>05-01-2023</td>
-                            <td>
-                                <a href="<?= base_url('app/reservasi/detail/1'); ?>"
-                                    class="btn btn-info btn-sm">Detail</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Lorem ipsum dolor</td>
-                            <td>Mauris faucibus</td>
-                            <td>08-01-2023</td>
-                            <td>11-01-2023</td>
-                            <td>
-                                <a href="<?= base_url('app/reservasi/detail/1'); ?>"
-                                    class="btn btn-info btn-sm">Detail</a>
-                            </td>
-                        </tr>
+                        <?php $i++; } ?>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -92,6 +71,11 @@
                     </tfoot>
                 </table>
             </div>
+            <?php if ($session->get('level') == 3) { ?>
+            <div class="card-footer">
+                <a class="btn btn-success" href="<?= base_url('/app/reservasi/tambah'); ?>">Tambah Reservasi</a>
+            </div>
+            <?php } ?>
         </div>
     </div>
 </div>

@@ -97,6 +97,8 @@ class LoginController extends BaseController
                     'upassword' => [
                         'rules' => 'required|matches[password]',
                     ],
+                    'no_hp' => 'required',
+                    'alamat' => 'required',
                 ],
                 [
                     'nama' => [
@@ -114,6 +116,14 @@ class LoginController extends BaseController
                         'required' => 'Ulangi Password tidak boleh kosong.',
                         'matches' => 'Password tidak sama.',
                     ],
+                    'no_hp' => [
+                        'required' => 'No Hp tidak boleh kosong.',
+                        'matches' => 'Password tidak sama.',
+                    ],
+                    'alamat' => [
+                        'required' => 'Alamat tidak boleh kosong.',
+                        'matches' => 'Password tidak sama.',
+                    ],
                 ]);
 
             if (!$valid) {
@@ -124,6 +134,8 @@ class LoginController extends BaseController
                 'nama' => $this->request->getVar('nama'),
                 'username' => $this->request->getVar('username'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+                'no_hp' => $this->request->getVar('no_hp'),
+                'alamat' => $this->request->getVar('alamat'),
                 'level' => 3
             ]);  
 

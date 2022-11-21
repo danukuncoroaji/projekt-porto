@@ -90,6 +90,7 @@ $routes->get('/app/tanggal/delete/(:any)', 'TanggalController::delete/$1',['filt
 //reservasi
 $routes->get('/app/reservasi', 'ReservasiController::index',['filter' => 'authGuard']);
 $routes->get('/app/reservasi/tambah', 'ReservasiController::create',['filter' => 'authGuard']);
+$routes->post('/app/reservasi/konfirmasi', 'ReservasiController::konfirmasi',['filter' => 'authGuard']);
 $routes->post('/app/reservasi/store', 'ReservasiController::store',['filter' => 'authGuard']);
 $routes->get('/app/reservasi/edit/(:any)', 'ReservasiController::edit/$1',['filter' => 'authGuard']);
 $routes->post('/app/reservasi/update/(:any)', 'ReservasiController::update/$1',['filter' => 'authGuard']);
