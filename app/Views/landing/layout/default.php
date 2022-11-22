@@ -90,7 +90,7 @@
                                     <div id="MS5af444ba18353" class="master-slider ms-skin-default">
 
                                         <div class="ms-slide" data-delay="7" data-fill-mode="fill">
-                                            <img src="<?= base_url('assets/landing/plugins\masterslider\public\assets\css\blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/Prameswari/TheSatyagrahaSuites_B_0001 rs.jpg'); ?>" style="opacity:0.5;">
+                                            <img src="<?= base_url('assets/landing/plugins/masterslider/public/assets/css/blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/Prameswari/TheSatyagrahaSuites_B_0001 rs.jpg'); ?>" style="opacity:0.5;">
 
                                             <div class="ms-layer  msp-cn-5-10" style="" data-duration="862" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-79" data-origin="mc" data-position="normal">
                                                 Lorem ipsum</div>
@@ -107,7 +107,7 @@
 
                                         </div>
                                         <div class="ms-slide" data-delay="3" data-fill-mode="fill">
-                                            <img src="<?= base_url('assets/landing/plugins\masterslider\public\assets\css\blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/Prameswari/TheSatyagrahaSuites_B_0020 rs.jpg'); ?>" style="opacity:0.5;">
+                                            <img src="<?= base_url('assets/landing/plugins/masterslider/public/assets/css/blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/Prameswari/TheSatyagrahaSuites_B_0020 rs.jpg'); ?>" style="opacity:0.5;">
 
                                             <div class="ms-layer  msp-cn-4-14" style="" data-effect="t(true,n,n,-500,n,n,n,n,n,n,n,n,n,n,n)" data-duration="425" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-18" data-origin="mc" data-position="normal">
                                                 Lorem ipsum</div>
@@ -118,7 +118,7 @@
 
                                         </div>
                                         <div class="ms-slide" data-delay="3" data-fill-mode="fill">
-                                            <img src="<?= base_url('assets/landing/plugins\masterslider\public\assets\css\blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/Hapsari/TheSatyagrahaSuites_A_0040 rs.jpg'); ?>" style="opacity:0.5;">
+                                            <img src="<?= base_url('assets/landing/plugins/masterslider/public/assets/css/blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/Hapsari/TheSatyagrahaSuites_A_0040 rs.jpg'); ?>" style="opacity:0.5;">
 
                                             <div class="ms-layer  msp-cn-4-14" style="" data-effect="t(true,n,250,n,n,n,n,n,n,n,n,-25,n,n,n)" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-27" data-origin="mc" data-position="normal">
                                                 Lorem ipsum</div>
@@ -293,7 +293,7 @@
                                 <div class="four columns">
                                     <div class="gdlr-ux column-service-ux">
                                         <div class="gdlr-item gdlr-column-service-item gdlr-type-3" style="margin-bottom: 65px;">
-                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload\hostel-service-1.png'); ?>" alt="" width="131" height="131"></div>
+                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload/hostel-service-1.png'); ?>" alt="" width="131" height="131"></div>
                                             <div class="column-service-content-wrapper">
                                                 <h3 class="column-service-title">Middle of downtown</h3>
                                                 <div class="column-service-divider"></div>
@@ -307,7 +307,7 @@
                                 <div class="four columns">
                                     <div class="gdlr-ux column-service-ux">
                                         <div class="gdlr-item gdlr-column-service-item gdlr-type-3" style="margin-bottom: 65px;">
-                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload\hostel-service-2.png'); ?>" alt="" width="131" height="131"></div>
+                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload/hostel-service-2.png'); ?>" alt="" width="131" height="131"></div>
                                             <div class="column-service-content-wrapper">
                                                 <h3 class="column-service-title">Great Environment</h3>
                                                 <div class="column-service-divider"></div>
@@ -321,7 +321,7 @@
                                 <div class="four columns">
                                     <div class="gdlr-ux column-service-ux">
                                         <div class="gdlr-item gdlr-column-service-item gdlr-type-3" style="margin-bottom: 65px;">
-                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload\hostel-service-3.png'); ?>" alt="" width="131" height="131"></div>
+                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload/hostel-service-3.png'); ?>" alt="" width="131" height="131"></div>
                                             <div class="column-service-content-wrapper">
                                                 <h3 class="column-service-title">Free Breakfast</h3>
                                                 <div class="column-service-divider"></div>
@@ -336,7 +336,7 @@
                                 <div class="four columns">
                                     <div class="gdlr-ux column-service-ux">
                                         <div class="gdlr-item gdlr-column-service-item gdlr-type-3" style="margin-bottom: 65px;">
-                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload\hostel-service-4.png'); ?>" alt="" width="131" height="131"></div>
+                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload/hostel-service-4.png'); ?>" alt="" width="131" height="131"></div>
                                             <div class="column-service-content-wrapper">
                                                 <h3 class="column-service-title">We Clean Everyday</h3>
                                                 <div class="column-service-divider"></div>
@@ -350,7 +350,7 @@
                                 <div class="four columns">
                                     <div class="gdlr-ux column-service-ux">
                                         <div class="gdlr-item gdlr-column-service-item gdlr-type-3" style="margin-bottom: 65px;">
-                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload\hostel-service-5.png'); ?>" alt="" width="131" height="131"></div>
+                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload/hostel-service-5.png'); ?>" alt="" width="131" height="131"></div>
                                             <div class="column-service-content-wrapper">
                                                 <h3 class="column-service-title">Enjoy nightlife</h3>
                                                 <div class="column-service-divider"></div>
@@ -364,7 +364,7 @@
                                 <div class="four columns">
                                     <div class="gdlr-ux column-service-ux">
                                         <div class="gdlr-item gdlr-column-service-item gdlr-type-3" style="margin-bottom: 65px;">
-                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload\hostel-service-5.png'); ?>" alt="" width="131" height="131"></div>
+                                            <div class="column-service-image"><img src="<?= base_url('/assets/landing/upload/hostel-service-5.png'); ?>" alt="" width="131" height="131"></div>
                                             <div class="column-service-content-wrapper">
                                                 <h3 class="column-service-title">Meet New People</h3>
                                                 <div class="column-service-divider"></div>
