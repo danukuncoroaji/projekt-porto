@@ -90,7 +90,7 @@
                                     <div id="MS5af444ba18353" class="master-slider ms-skin-default">
 
                                         <div class="ms-slide" data-delay="7" data-fill-mode="fill">
-                                            <img src="<?= base_url('assets/landing/plugins\masterslider\public\assets\css\blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/prameswari/TheSatyagrahaSuites_B_0001 rs.jpg'); ?>" style="opacity:0.5;">
+                                            <img src="<?= base_url('assets/landing/plugins\masterslider\public\assets\css\blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/Prameswari/TheSatyagrahaSuites_B_0001 rs.jpg'); ?>" style="opacity:0.5;">
 
                                             <div class="ms-layer  msp-cn-5-10" style="" data-duration="862" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-79" data-origin="mc" data-position="normal">
                                                 Lorem ipsum</div>
@@ -107,7 +107,7 @@
 
                                         </div>
                                         <div class="ms-slide" data-delay="3" data-fill-mode="fill">
-                                            <img src="<?= base_url('assets/landing/plugins\masterslider\public\assets\css\blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/prameswari/TheSatyagrahaSuites_B_0020 rs.jpg'); ?>" style="opacity:0.5;">
+                                            <img src="<?= base_url('assets/landing/plugins\masterslider\public\assets\css\blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/Prameswari/TheSatyagrahaSuites_B_0020 rs.jpg'); ?>" style="opacity:0.5;">
 
                                             <div class="ms-layer  msp-cn-4-14" style="" data-effect="t(true,n,n,-500,n,n,n,n,n,n,n,n,n,n,n)" data-duration="425" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-18" data-origin="mc" data-position="normal">
                                                 Lorem ipsum</div>
@@ -118,7 +118,7 @@
 
                                         </div>
                                         <div class="ms-slide" data-delay="3" data-fill-mode="fill">
-                                            <img src="<?= base_url('assets/landing/plugins\masterslider\public\assets\css\blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/hapsari/TheSatyagrahaSuites_A_0040 rs.jpg'); ?>" style="opacity:0.5;">
+                                            <img src="<?= base_url('assets/landing/plugins\masterslider\public\assets\css\blank.gif'); ?>" alt="" title="" data-src="<?= base_url('assets/images/Hapsari/TheSatyagrahaSuites_A_0040 rs.jpg'); ?>" style="opacity:0.5;">
 
                                             <div class="ms-layer  msp-cn-4-14" style="" data-effect="t(true,n,250,n,n,n,n,n,n,n,n,-25,n,n,n)" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="-27" data-origin="mc" data-position="normal">
                                                 Lorem ipsum</div>
@@ -144,7 +144,7 @@
                         <div class="clear"></div>
                     </section>
                     <section id="content-section-7">
-                        <div class="gdlr-color-wrapper   " style="background-color: #ffffff; padding-top: 70px; ">
+                        <div class="gdlr-color-wrapper" style="background-color: #ffffff; padding-top: 70px; ">
                             <div class="container">
                                 <div class="six columns">
                                     <div class="gdlr-item-title-wrapper gdlr-item pos-left pos-left-divider ">
@@ -381,7 +381,7 @@
                         <div class="clear"></div>
                     </section>
                     <section id="content-section-5">
-                        <div class="gdlr-parallax-wrapper gdlr-background-image gdlr-show-all gdlr-skin-dark-skin" id="gdlr-parallax-wrapper-2" data-bgspeed="0.1" style="background-image: url('<?= base_url('/assets/images/hapsari/TheSatyagrahaSuites_A_0070 rs.jpg'); ?>'); background-size:cover; background-repeat:no-repeat; background-position: center; padding-top: 190px; padding-bottom: 120px; ">
+                        <div class="gdlr-parallax-wrapper gdlr-background-image gdlr-show-all gdlr-skin-dark-skin" id="gdlr-parallax-wrapper-2" data-bgspeed="0.1" style="background-image: url('<?= base_url('/assets/images/Hapsari/TheSatyagrahaSuites_A_0070 rs.jpg'); ?>'); background-size:cover; background-repeat:no-repeat; background-position: center; padding-top: 190px; padding-bottom: 120px; ">
                             <div class="container">
                                 <div class="three columns">
                                     <div class="gdlr-skill-item-wrapper gdlr-skin-content gdlr-item">
