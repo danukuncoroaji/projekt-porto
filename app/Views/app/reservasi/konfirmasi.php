@@ -32,22 +32,22 @@
             <form method="POST" action="<?= base_url('/app/reservasi/store'); ?>">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12 mb-2">
+                        <div class="col-12 mb-4">
                             <label class="mb-2">Suite</label>
                             <h5><?= $suite; ?></h5>
                             <input type="hidden" name="suite" value="<?= $suite_id; ?>">
                         </div>
-                        <div class="col-12 mb-2">
+                        <div class="col-12 col-lg-3 mb-4">
                             <label class="mb-2">Tanggal Check in</label>
                             <h5><?= $check_in; ?></h5>
                             <input type="hidden" name="check_in" value="<?= $check_in; ?>">
                         </div>
-                        <div class="col-12 mb-2">
+                        <div class="col-12 col-lg-3 mb-4">
                             <label class="mb-2">Tanggal Check out</label>
                             <h5><?= $check_out; ?></h5>
                             <input type="hidden" name="check_out" value="<?= $check_out; ?>">
                         </div>
-                        <div class="col-12 col-md-6 mb-4">
+                        <div class="col-12 mb-4">
                             <label class="mb-2">Detail</label>
                             <table class="table">
                                 <thead>

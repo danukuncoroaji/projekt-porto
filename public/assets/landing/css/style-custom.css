@@ -1,0 +1,318 @@
+﻿html.ltie9 body, body{ min-width: 1140px; } .container{ max-width: 1140px; } .gdlr-caption-wrapper .gdlr-caption-inner{ max-width: 1140px; }
+.body-wrapper.gdlr-boxed-style{ max-width: 1220px; } .body-wrapper.gdlr-boxed-style .gdlr-header-wrapper{ max-width: 1220px; margin: 0px auto; }
+.gdlr-logo{ max-width: 190px; }
+.gdlr-logo{ margin-top: 50px; }
+.gdlr-logo{ margin-bottom: 20px; }
+.gdlr-navigation-wrapper{ margin-top: 52px; }
+.gdlr-page-title-wrapper { background-image: url('../upload/page-title-transparent.jpg'); }
+h1, h2, h3, h4, h5, h6, .gdlr-title-font{ font-family: "Open Sans"; }
+body, input, textarea, select{ font-family: "Merriweather"; }
+.gdlr-navigation{ font-family: "Open Sans"; }
+.gdlr-slider-item{ font-family: "Open Sans"; }
+body{ font-size: 14px; }
+h1{ font-size: 30px; }
+h2{ font-size: 25px; }
+h3{ font-size: 20px; }
+h4{ font-size: 18px; }
+h5{ font-size: 16px; }
+h6{ font-size: 15px; }
+.top-navigation-wrapper{ background-color: #0c0c0c; }
+.top-navigation-divider{ border-color: #898989; }
+.top-navigation-wrapper{ color: #a5a5a5; }
+.top-navigation-wrapper a, .top-navigation-wrapper a:hover{ color: #ffffff; }
+.gdlr-header-wrapper, .gdlr-header-inner{ background-color: #ffffff; }
+.gdlr-main-menu > li > a{ color: #7f7f7f; }
+.gdlr-main-menu > li:hover > a, .gdlr-main-menu > li.current-menu-item > a, .gdlr-main-menu > li.current-menu-ancestor > a{ color: #555555; opacity: 1; filter: alpha(opacity=100); }
+.gdlr-navigation-gimmick{ background-color: #1abc9c; }
+.gdlr-header-transparent .gdlr-main-menu > li > a{ color: #ffffff; }
+.gdlr-header-transparent .gdlr-main-menu > li:hover > a, .gdlr-header-transparent .gdlr-main-menu > li.current-menu-item > a, .gdlr-header-transparent .gdlr-main-menu > li.current-menu-ancestor > a{ color: #ffffff; }.gdlr-header-transparent div#gdlr-navigation-gimmick { background-color: #ffffff; }
+.gdlr-main-menu > .gdlr-normal-menu .sub-menu, .gdlr-main-menu > .gdlr-mega-menu .sf-mega{ border-top-color: #1c1c1c; }
+.gdlr-main-menu > .gdlr-normal-menu li , .gdlr-main-menu > .gdlr-mega-menu .sf-mega{ background-color: #2e2e2e; }
+.gdlr-main-menu > li > .sub-menu a, .gdlr-main-menu > li > .sf-mega a{ color: #bebebe; }
+.gdlr-main-menu > li > .sub-menu a:hover, .gdlr-main-menu > li > .sub-menu .current-menu-item > a, .gdlr-main-menu > li > .sub-menu .current-menu-ancestor > a, .gdlr-main-menu > li > .sf-mega a:hover, .gdlr-main-menu > li > .sf-mega .current-menu-item > a, .gdlr-main-menu > li > .sf-mega .current-menu-ancestor > a{ color: #ffffff; } .gdlr-main-menu .gdlr-normal-menu li > a.sf-with-ul:after { border-left-color: #ffffff; } 
+.gdlr-main-menu .sf-mega-section-inner > ul > li > a:hover, .gdlr-main-menu .sf-mega-section-inner > ul > li.current-menu-item > a { background-color: #2a2a2a; } 
+.gdlr-main-menu > li > .sub-menu *, .gdlr-main-menu > li > .sf-mega *{ border-color: #373737; }
+.gdlr-main-menu > li > .sf-mega .sf-mega-section-inner > a { color: #ffffff; }
+.gdlr-main-menu > li > .sf-mega .sf-mega-section-inner > a:hover, .gdlr-main-menu > li > .sf-mega .sf-mega-section-inner.current-menu-item > a, .gdlr-main-menu > li > .sf-mega .sf-mega-section-inner.current-menu-ancestor > a { color: #ffffff; }
+#gdlr-responsive-navigation.dl-menuwrapper button { background-color: #353535; }
+#gdlr-responsive-navigation.dl-menuwrapper button:hover, #gdlr-responsive-navigation.dl-menuwrapper button.dl-active, #gdlr-responsive-navigation.dl-menuwrapper ul{ background-color: #0a0a0a; }
+.gdlr-menu-search{ background: #2b2b2b; background: rgba(43, 43, 43, 0.8); }
+body{ background-color: #dddddd; }
+.body-wrapper, .gdlr-single-lightbox-container{ background-color: #ffffff; }
+.gdlr-page-title, .gdlr-page-title-gimmick{ color: #ffffff; }
+.gdlr-page-caption{ color: #ffffff; }
+h1, h2, h3, h4, h5, h6, .gdlr-title, .gdlr-title a{ color: #454545; }
+.gdlr-item-title-wrapper .gdlr-item-title{ color: #1e1e1e; border-color: #1e1e1e; }
+.gdlr-item-title-divider{ border-color: #1abc9c; }
+.gdlr-item-title-wrapper .gdlr-item-caption{ color: #9b9b9b; }
+body{ color: #909090; }
+a{ color: #1abc9c; }
+a:hover{ color: #53bca7; }
+body *{ border-color: #e5e5e5; }
+.page-not-found-block{ background-color: #d65938; }
+.page-not-found-block{ color: #ffffff; }
+.page-not-found-search  .gdl-search-form input[type="text"]{ background-color: #963a20; }
+.page-not-found-search  .gdl-search-form input[type="text"]{ color: #d57f5c; }
+.gdlr-sidebar .gdlr-widget-title{ color: #383838; }
+.gdlr-sidebar *{ border-color: #eeeeee; }
+.gdlr-sidebar ul li:before { border-color: #bdbdbd; }
+.gdl-search-form input{ background-color: #f7f7f7; }
+.gdl-search-form input{ color: #9d9d9d; }
+.gdl-search-form input{ border-color: #ebebeb; }
+.tagcloud a{ background-color: #1abc9c; }
+.tagcloud a, .tagcloud a:hover{ color: #ffffff; }
+.gdlr-accordion-item.style-1 .pre-active .accordion-title{ color: #3c3c3c; }
+.gdlr-accordion-item.style-1 .accordion-title{ color: #8d8d8d; }
+.gdlr-accordion-item.style-1 .accordion-title i{ background-color: #f3f3f3; }
+.gdlr-accordion-item.style-1 .accordion-title i{ color: #a8a8a8; }
+.gdlr-accordion-item.style-1 .accordion-title i.icon-minus{ background-color: #1abc9c; }
+.gdlr-accordion-item.style-1 .accordion-title i.icon-minus{ color: #ffffff; }
+.gdlr-banner-item-wrapper .flex-direction-nav .flex-prev, .gdlr-banner-item-wrapper .flex-direction-nav .flex-next{ color: #999999; }
+.gdlr-box-with-icon-item{ background-color: #f5f5f5; }
+.gdlr-box-with-icon-item > i, .gdlr-box-with-icon-item .box-with-icon-title{ color: #585858; }
+.gdlr-box-with-icon-item{ color: #929292; }
+.gdlr-button, .gdlr-button:hover, input[type="button"], input[type="submit"], .gdlr-top-menu > .gdlr-mega-menu .sf-mega a.gdlr-button{ color: #ffffff; }
+.gdlr-button, input[type="button"], input[type="submit"]{ background-color: #1abc9c; }
+.gdlr-button{ border-color: #16af9b; }
+.column-service-title{ color: #333333; }
+.column-service-content{ color: #909090; }
+.column-service-icon i{ color: #1abc9c; }.gdlr-column-service-item.gdlr-type-2 .column-service-divider{ border-color: #1abc9c; }
+.gdlr-column-service-item.gdlr-type-2 .column-service-icon{ background-color: #3e3e3e; }
+.list-with-icon .list-with-icon-title{ color: #333333; }
+.gdlr-pie-chart-item .pie-chart-title{ color: #313131; }
+.gdlr-price-inner-item{ background-color: #f9f9f9; }
+.gdlr-price-item .price-title-wrapper{ background-color: #454545; }
+.gdlr-price-item .price-title{ color: #ffffff; }
+.gdlr-price-item .price-tag{ background-color: #838383; }
+.gdlr-price-item .best-price .price-tag{ background-color: #1abc9c; }
+.gdlr-price-item .price-tag{ color: #ffffff; }
+.gdlr-process-tab .gdlr-process-icon{ background-color: #f3f3f3; }
+.gdlr-process-tab .gdlr-process-icon{ border-color: #e3e3e3; }
+.gdlr-process-tab .gdlr-process-icon i{ color: #aaaaaa; }
+.gdlr-process-tab .process-line .process-line-divider{ border-color: #e3e3e3; } .gdlr-process-tab .process-line .icon-chevron-down, .gdlr-process-tab .process-line .icon-chevron-right{ color: #e3e3e3; }
+.gdlr-process-wrapper .gdlr-process-tab .gdlr-process-title{ color: #454545; }
+.gdlr-skill-item-wrapper{ color: #3a3a3a; }
+.stunning-text-title{ color: #414141; }
+.stunning-text-caption{ color: #949494; }
+.gdlr-stunning-text-item.with-padding{ background-color: #f3f3f3; }
+.gdlr-stunning-text-item.with-border{ border-color: #f3f3f3; }
+.tab-title-wrapper .tab-title{ background-color: #f9f9f9; }
+.tab-title-wrapper .tab-title{ color: #3b3b3b; }
+.tab-title-wrapper .tab-title.active, .tab-content-wrapper{ background-color: #ffffff; }
+table tr th{ background-color: #1abc9c; }
+table tr th{ color: #ffffff; }
+table.style-2 tr:nth-child(odd){ background-color: #f9f9f9; }
+table.style-2 tr:nth-child(odd){ color: #949494; }
+table.style-2 tr:nth-child(even){ background-color: #f3f3f3; }
+table.style-2 tr:nth-child(even){ color: #949494; }
+.gdlr-blog-title, .gdlr-blog-title a{ color: #424242; }
+.gdlr-blog-title a:hover{ color: #1c1111; }
+.blog-info, .blog-info a, .blog-info i{ color: #1abc9c; }
+.gdlr-blog-thumbnail .gdlr-sticky-banner{ background-color: #232323; }
+.gdlr-blog-thumbnail .gdlr-sticky-banner, .gdlr-blog-thumbnail .gdlr-sticky-banner i{ color: #ffffff; }
+.gdlr-social-share, .gdlr-social-share a{ background-color: #f3f3f3; }
+.gdlr-social-share .social-share-title{ color: #353535; }
+.gdlr-standard-style .gdlr-single-blog-tag a{ background-color: #1abc9c; }
+.gdlr-standard-style .gdlr-single-blog-tag a{ color: #ffffff; }
+.blog-date-wrapper{ background-color: #1abc9c; }
+.gdlr-blog-widget .blog-date-wrapper, .gdlr-blog-medium .blog-date-wrapper, .gdlr-blog-full .blog-date-wrapper{ box-shadow: 2px 2px 0px #1c8e77; -moz-box-shadow: 2px 2px 0px #1c8e77; -webkit-box-shadow: 2px 2px 0px #1c8e77; }
+.blog-date-wrapper{ color: #ffffff; }
+.format-aside .gdlr-blog-content{ background-color: #1abc9c; }
+.format-aside .gdlr-blog-content{ color: #ffffff; }
+.format-quote .gdlr-top-quote blockquote{ color: #8d8d8d; }
+.format-quote .gdlr-quote-author{ color: #1abc9c; }
+.gdlr-single-nav > div i{ background-color: #f3f3f3; }
+.gdlr-single-nav > div i{ color: #8d8d8d; }
+.portfolio-item-filter a{ color: #1abc9c; }
+.portfolio-item-filter span, .portfolio-item-filter a.active{ color: #1abc9c; }
+.gdlr-image-link-shortcode .gdlr-image-link-overlay, .gdlr-room-category-thumbnail-overlay, .portfolio-thumbnail .portfolio-overlay{ background-color: #000000; }
+.gdlr-image-link-shortcode .gdlr-image-link-icon, .gdlr-room-category-thumbnail-overlay-icon i, .portfolio-thumbnail .portfolio-icon i{ color: #ffffff; }
+.portfolio-title a{ color: #515151; }
+.portfolio-title a:hover{ color: #515151; }
+.portfolio-info, .portfolio-info a{ color: #1abc9c; }
+.gdlr-pagination .page-numbers{ background-color: #ebebeb; }
+.gdlr-pagination .page-numbers{ color: #979797; }
+.gdlr-pagination .page-numbers:hover, .gdlr-pagination .page-numbers.current{ background-color: #1abc9c; }
+.gdlr-pagination .page-numbers:hover, .gdlr-pagination .page-numbers.current{ color: #ffffff; }
+.single .gdlr-room-title{ color: #4b4b4b; }
+.gdlr-classic-room .gdlr-room-title a, .gdlr-modern-room .gdlr-room-title a,.gdlr-medium-room .gdlr-room-title a{ color: #1abc9c; }
+.gdlr-classic-room .gdlr-room-title a:hover, .gdlr-modern-room .gdlr-room-title a:hover,.gdlr-medium-room .gdlr-room-title a:hover{ color: #1abc9c; }
+{ color: #1abc9c; }
+.single .gdlr-room-price .gdlr-tail, .gdlr-classic-room .gdlr-room-price .gdlr-tail,.gdlr-medium-room .gdlr-room-price .gdlr-tail, .gdlr-room-service-unit{ color: #74b7d3; }
+.gdlr-modern-room .gdlr-room-detail{ color: #787878; }
+.gdlr-medium-room .gdlr-hotel-room-info{ border-color: #bfbfbf; }
+.gdlr-medium-room .gdlr-hotel-room-info{ color: #898989; }
+.gdlr-medium-room .gdlr-price-break-down{ color: #bdbdbd; }
+.price-breakdown-wrapper .price-breakdown-content{ background-color: #f3f3f3; }
+.price-breakdown-wrapper .price-breakdown-content, .price-breakdown-wrapper .price-breakdown-total{ border-color: #e6e6e6; }
+.price-breakdown-wrapper .price-breakdown-total .gdlr-head, .price-breakdown-wrapper .price-breakdown-info .gdlr-head{ color: #232323; }
+.price-breakdown-wrapper .price-breakdown-info .gdlr-head span,.price-breakdown-wrapper .price-breakdown-total .gdlr-head span{ color: #a2a2a2; }
+.gdlr-booking-contact-form .gdlr-payment-method label:hover img, .gdlr-booking-contact-form .gdlr-payment-method label.gdlr-active img{ border-color: #72afd5; }
+.gdlr-booking-contact-form .gdlr-booking-payment-submit{ background-color: #81bad3; }
+.gdlr-booking-contact-form .gdlr-booking-payment-submit{ border-color: #4a87a2; }
+.gdlr-reservation-bar .gdlr-price-summary-wrapper, .gdlr-price-summary-grand-total.gdlr-active, .gdlr-price-deposit-wrapper .gdlr-price-deposit-input span.gdlr-active{ color: #ffffff; }.gdlr-price-deposit-input .gdlr-radio-input { background: #ffffff; }.gdlr-price-deposit-input .gdlr-radio-input { border: 3px solid #ffffff !important; }
+.gdlr-price-summary-grand-total, .gdlr-service-price-summary-item, .gdlr-reservation-bar .gdlr-price-room-summary, .gdlr-reservation-bar .gdlr-price-room-summary-info, .gdlr-price-deposit-wrapper .gdlr-price-deposit-caption, .gdlr-price-deposit-wrapper .gdlr-price-deposit-input span{ color: #baefe2; }
+.gdlr-reservation-bar .gdlr-price-summary-wrapper *{ border-color: #0e8e75; }
+.gdlr-price-summary-wrapper .gdlr-edit-booking-button{ background-color: #0e8e75; }
+.gdlr-price-summary-wrapper .gdlr-edit-booking-button{ border-color: #006847; }
+.gdlr-booking-failed, .gdlr-booking-complete, .gdlr-room-selection-complete{ background-color: #f5f5f5; }
+.gdlr-room-selection-complete .gdlr-room-selection-caption{ color: #8d8d8d; }
+.gdlr-room-selection-complete .gdlr-room-selection-caption{ border-bottom-color: #e5e5e5; }
+.gdlr-booking-failed .gdlr-booking-failed-title, .gdlr-booking-complete .gdlr-booking-complete-title, .gdlr-booking-complete .gdlr-booking-complete-additional i, .gdlr-room-selection-complete .gdlr-room-selection-title{ color: #484848; }
+.gdlr-datepicker-range-wrapper, .ui-datepicker{ background-color: #f3f3f3; }
+.ui-datepicker-title, .ui-datepicker th{ color: #4b4b4b; }
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next, .ui-state-default, .ui-state-default:hover { background-color: #ffffff; }
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next, .ui-state-default, .ui-state-default:hover { color: #6a6a6a; }
+.ui-state-disabled .ui-state-default, .ui-state-disabled .ui-state-default:hover{ background-color: #eaeaea; }
+.ui-state-disabled .ui-state-default, .ui-state-disabled .ui-state-default:hover{ color: #aaaaaa; }
+.dp-highlight .ui-state-default, .dp-highlight .ui-state-highlight:hover{ background-color: #1abc9c; }
+.dp-highlight .ui-state-default, .dp-highlight .ui-state-highlight:hover{ color: #ffffff; }
+.gdlr-booking-process-bar{ background-color: #1abc9c; }.gdlr-booking-process-bar .gdlr-booking-process:after{ border-left-color: #1abc9c; }
+.gdlr-booking-process-bar{ color: #91f2cb; }
+.gdlr-booking-process-bar .gdlr-booking-process:before{ border-left-color: #1abc9c; }
+.gdlr-reservation-bar{ background-color: #1abc9c; }
+.gdlr-reservation-bar .gdlr-reservation-bar-title, .gdlr-reservation-bar .gdlr-reservation-field-title, .gdlr-reservation-people-title { color: #ffffff; }
+.gdlr-reservation-bar .gdlr-reservation-bar-title{ border-color: #0e9e72; }
+.gdlr-reservation-bar input.gdlr-datepicker, .gdlr-reservation-bar .gdlr-combobox-wrapper select, .gdlr-reservation-bar .gdlr-combobox-wrapper select option, .gdlr-reservation-bar .gdlr-combobox-wrapper{ background-color: #ffffff; }
+.gdlr-reservation-bar input.gdlr-datepicker, .gdlr-reservation-bar .gdlr-combobox-wrapper select{ color: #999999; }
+.gdlr-reservation-bar .gdlr-datepicker-wrapper:after, .gdlr-reservation-bar .gdlr-combobox-wrapper:after{ color: #000000; }
+.gdlr-reservation-bar .gdlr-reservation-bar-room-form{ background-color: #64c1ac; }
+.gdlr-reservation-room{ color: #ffffff; }
+.gdlr-reservation-room.gdlr-active{ color: #ffffff; }
+.gdlr-reservation-room .gdlr-reservation-change-room{ color: #007a66; }
+.gdlr-reservation-bar .gdlr-reservation-bar-button{ background-color: #0e8e75; }
+.gdlr-reservation-bar .gdlr-reservation-bar-button{ color: #ffffff; }
+.gdlr-reservation-bar .gdlr-reservation-bar-button{ border-color: #097c62; }
+.gdlr-price-summary-hotel-branches{ background-color: #51392B; }
+.gdlr-price-summary-hotel-branches{ color: #ffffff; }
+.gdlr-personnel-item .personnel-item-inner{ background-color: #f5f5f5; }
+.gdlr-personnel-item.round-style .personnel-item{ background-color: #1abc9c; }
+.gdlr-personnel-item .personnel-author{ color: #3b3b3b; }
+.gdlr-personnel-item .personnel-author-image{ border-color: #1abc9c; }
+.gdlr-personnel-item .personnel-position{ color: #acacac; }
+.gdlr-personnel-item .personnel-content{ color: #959595; }
+.gdlr-personnel-item .personnel-social i{ color: #3b3b3b; }
+.gdlr-testimonial-item .testimonial-item-inner, .gdlr-testimonial-item .testimonial-author-image{ background-color: #f5f5f5; }
+.gdlr-testimonial-item .testimonial-content{ color: #9b9b9b; }
+.gdlr-testimonial-item .testimonial-author{ color: #1abc9c; }
+.gdlr-testimonial-item .testimonial-position{ color: #4d4d4d; }
+.gdlr-testimonial-item .testimonial-author-image{ border-color: #1abc9c; }
+.gdlr-testimonial-item.box-style .testimonial-item-inner:after{ border-top-color: #dddddd; border-left-color: #dddddd; }
+.gdlr-gallery-thumbnail .gallery-item{ background-color: #e5e5e5; }
+.gdlr-gallery-thumbnail-container .gallery-caption{ background-color: #000000; }
+.gdlr-gallery-thumbnail-container .gallery-caption{ color: #ffffff; }
+.nivo-controlNav a, .flex-control-paging li a{ background-color: #cecece; }
+.nivo-controlNav a:hover, .nivo-controlNav a.active, .flex-control-paging li a:hover, .flex-control-paging li a.flex-active { background-color: #949494; }
+.nivo-controlNav a, .flex-control-paging li a{ border-color: #ffffff !important; }
+.nivo-directionNav a, .flex-direction-nav a, .ls-flawless .ls-nav-prev, .ls-flawless .ls-nav-next{ background-color: #000000; }
+body .nivo-directionNav a, body .flex-direction-nav a, body .flex-direction-nav a:hover, .ls-flawless .ls-nav-prev, .ls-flawless .ls-nav-next{ color: #ffffff; }
+.gdlr-caption{ background-color: #000000; }
+.gdlr-caption-title{ color: #ffffff; }
+.gdlr-caption-text{ color: #ffffff; }
+.gdlr-caption-wrapper.post-slider{ background-color: #000000; }
+.gdlr-caption-wrapper.post-slider .gdlr-caption-title{ color: #ffffff; }
+.gdlr-caption-wrapper.post-slider .gdlr-caption-text{ color: #dddddd; }
+.gdlr-post-slider-item.style-no-excerpt .gdlr-caption-wrapper .gdlr-caption-date, .gdlr-post-slider-item.style-no-excerpt .gdlr-caption-wrapper .gdlr-title-link{ color: #ffffff; }
+.gdlr-post-slider-item.style-no-excerpt .gdlr-caption-wrapper .gdlr-caption-date, .gdlr-post-slider-item.style-no-excerpt .gdlr-caption-wrapper .gdlr-title-link{ background-color: #1abc9c; }
+.gdlr-item-title-wrapper .gdlr-flex-prev, .gdlr-item-title-wrapper .gdlr-flex-next{ background-color: #ebebeb; }
+.gdlr-item-title-wrapper .gdlr-flex-prev, .gdlr-item-title-wrapper .gdlr-flex-next{ color: #b2b2b2; }
+.gdlr-item-title-wrapper .gdlr-flex-prev:hover, .gdlr-item-title-wrapper .gdlr-flex-next:hover{ background-color: #1abc9c; }
+.gdlr-item-title-wrapper .gdlr-flex-prev:hover, .gdlr-item-title-wrapper .gdlr-flex-next:hover{ color: #ffffff; }
+input[type="text"], input[type="email"], input[type="password"], textarea, .gdlr-hotel-availability .gdlr-combobox-wrapper{ background-color: #f5f5f5; }
+input[type="text"], input[type="email"], input[type="password"], textarea, .gdlr-hotel-availability .gdlr-combobox-wrapper select{ color: #828282; }input::input-placeholder{ color:#828282; } input::-webkit-input-placeholder{ color:#828282; }input::-moz-placeholder{ color:#828282; } input:-moz-placeholder{ color:#828282; }input:-ms-input-placeholder{ color:#828282; }textarea::input-placeholder{ color:#828282; } textarea::-webkit-input-placeholder{ color:#828282; }textarea::-moz-placeholder{ color:#828282; } textarea:-moz-placeholder{ color:#828282; }textarea:-ms-input-placeholder{ color:#828282; }
+.footer-wrapper{ background-color: #1e1e1e; }
+.footer-wrapper .gdlr-widget-title, .footer-wrapper .gdlr-widget-title a{ color: #ffffff; }
+.footer-wrapper{ color: #c4c4c4; }
+.footer-wrapper a{ color: #a3a3a3; }
+.footer-wrapper a:hover{ color: #ffffff; }
+.footer-wrapper *{ border-color: #424242; }
+.footer-wrapper input[type="text"], .footer-wrapper input[type="email"], .footer-wrapper input[type="password"], .footer-wrapper textarea{ background-color: #ffffff; }
+.footer-wrapper input[type="text"], .footer-wrapper input[type="email"], .footer-wrapper input[type="password"], .footer-wrapper textarea{ color: #828282; }
+.footer-wrapper input[type="text"], .footer-wrapper input[type="email"], .footer-wrapper input[type="password"], .footer-wrapper textarea{ border-color: #313131; }
+.footer-wrapper .gdlr-button, .footer-wrapper .gdlr-button:hover, .footer-wrapper input[type="button"], .footer-wrapper input[type="submit"]{ color: #ffffff; }
+.footer-wrapper .gdlr-button, .footer-wrapper input[type="button"], .footer-wrapper input[type="submit"]{ background-color: #1abc9c; }
+.footer-wrapper .tagcloud a{ background-color: #1abc9c; }
+.footer-wrapper .tagcloud a, .footer-wrapper .tagcloud a:hover{ color: #ffffff; }
+.copyright-wrapper{ background-color: #0f0f0f; }
+.copyright-wrapper{ color: #9e9e9e; }
+.footer-wrapper .copyright-wrapper{ border-color: #0f0f0f; }
+html  .woocommerce span.onsale, html  .woocommerce-page span.onsale, html .woocommerce-message,html .woocommerce div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce #content div.product .woocommerce-tabs ul.tabs li.active,html .woocommerce-page div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li.active {  background: #1abc9c; }html .woocommerce .star-rating, html .woocommerce-page .star-rating, html .woocommerce .star-rating:before, html .woocommerce-page .star-rating:before, html .woocommerce div.product span.price, html .woocommerce div.product p.price, html .woocommerce #content div.product span.price, html .woocommerce #content div.product p.price, html .woocommerce-page div.product span.price, html .woocommerce-page div.product p.price, html .woocommerce-page #content div.product span.price, html .woocommerce-page #content div.product p.price {color: #1abc9c; }
+html .woocommerce-message  a.button, html .woocommerce-error  a.button, html .woocommerce-info  a.button, html .woocommerce-message, html .woocommerce-error, html .woocommerce-info, html  .woocommerce span.onsale, html  .woocommerce-page span.onsale, html .woocommerce div.product .woocommerce-tabs ul.tabs li.active,html .woocommerce #content div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce-page div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li.active, html .woocommerce nav.woocommerce-pagination ul li span.current, html .woocommerce-page nav.woocommerce-pagination ul li span.current, html .woocommercenav.woocommerce-pagination ul li a:hover, html .woocommerce-page nav.woocommerce-pagination ul li a:hover{ color: #ffffff; }
+html .woocommerce-info{ background: #389EC5; }
+html .woocommerce-error{ background: #C23030; }
+html .woocommerce a.button.alt:hover, html .woocommerce button.button.alt:hover, html .woocommerce input.button.alt:hover, html .woocommerce  input#submit.alt:hover, html .woocommerce #content input.button.alt:hover, html .woocommerce-page a.button.alt:hover, html .woocommerce-page button.button.alt:hover, html .woocommerce-page input.button.alt:hover, html .woocommerce-page  input#submit.alt:hover, html .woocommerce-page #content input.button.alt:hover, html .woocommerce a.button.alt, html .woocommerce button.button.alt, html .woocommerce input.button.alt, html .woocommerce  input#submit.alt, html .woocommerce #content input.button.alt, html .woocommerce-page a.button.alt, html .woocommerce-page button.button.alt, html .woocommerce-page input.button.alt, html .woocommerce-page  input#submit.alt, html .woocommerce-page #content input.button.alt, html .woocommerce a.button, html .woocommerce button.button, html .woocommerce input.button, html .woocommerce  input#submit, html .woocommerce #content input.button, html .woocommerce-page a.button, html .woocommerce-page button.button, html .woocommerce-page input.button, html .woocommerce-page  input#submit, html .woocommerce-page #content input.button, html .woocommerce a.button:hover, html .woocommerce button.button:hover, html .woocommerce input.button:hover, html .woocommerce  input#submit:hover, html .woocommerce #content input.button:hover, html .woocommerce-page a.button:hover, html .woocommerce-page button.button:hover, html .woocommerce-page input.button:hover, html .woocommerce-page  input#submit:hover, html .woocommerce-page #content input.button:hover, html .woocommerce ul.products li.product a.loading, html .woocommerce div.product form.cart .button, html .woocommerce #content div.product form.cart .button, html .woocommerce-page div.product form.cart .button, html .woocommerce-page #content div.product form.cart .button{ background: #b89f80; }
+html .woocommerce a.button.alt:hover, html .woocommerce button.button.alt:hover, html .woocommerce input.button.alt:hover, html .woocommerce  input#submit.alt:hover, html .woocommerce #content input.button.alt:hover, html .woocommerce-page a.button.alt:hover, html .woocommerce-page button.button.alt:hover, html .woocommerce-page input.button.alt:hover, html .woocommerce-page  input#submit.alt:hover, html .woocommerce-page #content input.button.alt:hover, html .woocommerce a.button.alt, html .woocommerce button.button.alt, html .woocommerce input.button.alt, html .woocommerce  input#submit.alt, html .woocommerce #content input.button.alt, html .woocommerce-page a.button.alt, html .woocommerce-page button.button.alt, html .woocommerce-page input.button.alt, html .woocommerce-page  input#submit.alt, html .woocommerce-page #content input.button.alt, html .woocommerce a.button, html .woocommerce button.button, html .woocommerce input.button, html .woocommerce  input#submit, html .woocommerce #content input.button, html .woocommerce-page a.button, html .woocommerce-page button.button, html .woocommerce-page input.button, html .woocommerce-page  input#submit, html .woocommerce-page #content input.button, html .woocommerce a.button:hover, html .woocommerce button.button:hover, html .woocommerce input.button:hover, html .woocommerce  input#submit:hover, html .woocommerce #content input.button:hover, html .woocommerce-page a.button:hover, html .woocommerce-page button.button:hover, html .woocommerce-page input.button:hover, html .woocommerce-page  input#submit:hover, html .woocommerce-page #content input.button:hover, html .woocommerce ul.products li.product a.loading, html .woocommerce div.product form.cart .button, html .woocommerce #content div.product form.cart .button, html .woocommerce-page div.product form.cart .button, html .woocommerce-page #content div.product form.cart .button{ color: #ffffff; }
+html .woocommerce a.button.alt:hover, html .woocommerce button.button.alt:hover, html .woocommerce input.button.alt:hover, html .woocommerce  input#submit.alt:hover, html .woocommerce #content input.button.alt:hover, html .woocommerce-page a.button.alt:hover, html .woocommerce-page button.button.alt:hover, html .woocommerce-page input.button.alt:hover, html .woocommerce-page  input#submit.alt:hover, html .woocommerce-page #content input.button.alt:hover, html .woocommerce a.button.alt, html .woocommerce button.button.alt, html .woocommerce input.button.alt, html .woocommerce  input#submit.alt, html .woocommerce #content input.button.alt, html .woocommerce-page a.button.alt, html .woocommerce-page button.button.alt, html .woocommerce-page input.button.alt, html .woocommerce-page  input#submit.alt, html .woocommerce-page #content input.button.alt, html .woocommerce a.button, html .woocommerce button.button, html .woocommerce input.button, html .woocommerce  input#submit, html .woocommerce #content input.button, html .woocommerce-page a.button, html .woocommerce-page button.button, html .woocommerce-page input.button, html .woocommerce-page  input#submit, html .woocommerce-page #content input.button, html .woocommerce a.button:hover, html .woocommerce button.button:hover, html .woocommerce input.button:hover, html .woocommerce  input#submit:hover, html .woocommerce #content input.button:hover, html .woocommerce-page a.button:hover, html .woocommerce-page button.button:hover, html .woocommerce-page input.button:hover, html .woocommerce-page  input#submit:hover, html .woocommerce-page #content input.button:hover, html .woocommerce ul.products li.product a.loading, html .woocommerce div.product form.cart .button, html .woocommerce #content div.product form.cart .button, html .woocommerce-page div.product form.cart .button, html .woocommerce-page #content div.product form.cart .button{ border-bottom: 3px solid #b28855; }
+html .woocommerce #reviews #comments ol.commentlist li img.avatar, html .woocommerce-page #reviews #comments ol.commentlist li img.avatar { background: #ebebeb; }html .woocommerce #reviews #comments ol.commentlist li img.avatar, html .woocommerce-page #reviews #comments ol.commentlist li img.avatar,html .woocommerce #reviews #comments ol.commentlist li .comment-text, html .woocommerce-page #reviews #comments ol.commentlist li .comment-text,html .woocommerce ul.products li.product a img, html .woocommerce-page ul.products li.product a img, html .woocommerce ul.products li.product a img:hover ,html .woocommerce-page ul.products li.product a img:hover, html .woocommerce-page div.product div.images img, html .woocommerce-page #content div.product div.images img,html .woocommerce form.login, html .woocommerce form.checkout_coupon, html .woocommerce form.register, html .woocommerce-page form.login,html .woocommerce-page form.checkout_coupon, html .woocommerce-page form.register, html .woocommerce table.cart td.actions .coupon .input-text,html .woocommerce #content table.cart td.actions .coupon .input-text, html .woocommerce-page table.cart td.actions .coupon .input-text,html .woocommerce-page #content table.cart td.actions .coupon .input-text { border: 1px solid #ebebeb; }html .woocommerce div.product .woocommerce-tabs ul.tabs:before, html .woocommerce #content div.product .woocommerce-tabs ul.tabs:before,html .woocommerce-page div.product .woocommerce-tabs ul.tabs:before, html .woocommerce-page #content div.product .woocommerce-tabs ul.tabs:before,html .woocommerce table.shop_table tfoot td, html .woocommerce table.shop_table tfoot th, html .woocommerce-page table.shop_table tfoot td,html .woocommerce-page table.shop_table tfoot th, html .woocommerce table.shop_table tfoot td, html .woocommerce table.shop_table tfoot th,html .woocommerce-page table.shop_table tfoot td, html .woocommerce-page table.shop_table tfoot th { border-bottom: 1px solid #ebebeb; }html .woocommerce .cart-collaterals .cart_totals table tr:first-child th, html .woocommerce .cart-collaterals .cart_totals table tr:first-child td,html .woocommerce-page .cart-collaterals .cart_totals table tr:first-child th, html .woocommerce-page .cart-collaterals .cart_totals table tr:first-child td { border-top: 3px #ebebeb solid; }html .woocommerce .cart-collaterals .cart_totals tr td, html .woocommerce .cart-collaterals .cart_totals tr th,html .woocommerce-page .cart-collaterals .cart_totals tr td, html .woocommerce-page .cart-collaterals .cart_totals tr th { border-bottom: 2px solid #ebebeb; }
+html .woocommerce div.product .woocommerce-tabs ul.tabs li, html .woocommerce #content div.product .woocommerce-tabs ul.tabs li, html .woocommerce-page div.product .woocommerce-tabs ul.tabs li, html .woocommerce-page #content div.product .woocommerce-tabs ul.tabs li ,html .woocommerce table.cart a.remove, html .woocommerce #content table.cart a.remove, html .woocommerce-page table.cart a.remove, html .woocommerce-page #content table.cart a.remove, html .woocommerce #payment, html .woocommerce-page #payment, html .woocommerce .customer_details,html .woocommerce ul.order_details, html .woocommerce nav.woocommerce-pagination ul li a, html .woocommerce-page nav.woocommerce-pagination ul li a,html .woocommerce form .form-row input.input-text, html .woocommerce form .form-row textarea, html .woocommerce-page form .form-row input.input-text, html .woocommerce-page form .form-row textarea, html .woocommerce .quantity input.qty, html .woocommerce #content .quantity input.qty, html .woocommerce-page .quantity input.qty, html .woocommerce-page #content .quantity input.qty,html .woocommerce .widget_shopping_cart .total, html .woocommerce-page .widget_shopping_cart .total { background: #f3f3f3; }html .woocommerce .quantity input.qty, html .woocommerce #content .quantity input.qty, html .woocommerce-page .quantity input.qty, html .woocommerce-page #content .quantity input.qty { border: 1px solid #f3f3f3; }
+html .woocommerce .widget_shopping_cart .total, html .woocommerce-page .widget_shopping_cart .total { border-top: 2px solid #e5e5e5; }html .woocommerce table.cart a.remove:hover, html .woocommerce #content table.cart a.remove:hover, html .woocommerce-page table.cart a.remove:hover,html .woocommerce-page #content table.cart a.remove:hover, html #payment div.payment_box, html .woocommerce-page #payment div.payment_box { background: #e5e5e5; }
+html .woocommerce table.shop_table tfoot td, html .woocommerce table.shop_table tfoot th, html .woocommerce-page table.shop_table tfoot td,html .woocommerce-page table.shop_table tfoot th, .cart-subtotal th, .shipping th , .total th, html .woocommerce table.shop_attributes .alt th,html .woocommerce-page table.shop_attributes .alt th, html .woocommerce ul.products li.product .price, html.woocommerce-page ul.products li.product .price { color: #333333; }
+html .woocommerce ul.products li.product .price del, html .woocommerce-page ul.products li.product .price del,html .woocommerce table.cart a.remove, html .woocommerce #content table.cart a.remove, html .woocommerce-page table.cart a.remove,html .woocommerce-page #content table.cart a.remove { color: #888888; }
+html .woocommerce .quantity .plus, html .woocommerce .quantity .minus, html .woocommerce #content .quantity .plus, html .woocommerce #content .quantity .minus, 
+												html .woocommerce-page .quantity .plus, html .woocommerce-page .quantity .minus, html .woocommerce-page #content .quantity .plus, 
+												html .woocommerce-page #content .quantity .minus { border: 1px solid #a0a0a0; }
+html .woocommerce .quantity .plus, html .woocommerce .quantity .minus, html .woocommerce #content .quantity .plus, html .woocommerce #content .quantity .minus, 
+												html .woocommerce-page .quantity .plus, html .woocommerce-page .quantity .minus, html .woocommerce-page #content .quantity .plus, 
+												html .woocommerce-page #content .quantity .minus { color: #ffffff; }
+html .woocommerce .quantity .plus, html .woocommerce #content .quantity .plus,  html .woocommerce-page .quantity .plus,html .woocommerce-page #content .quantity .plus, html .woocommerce .quantity .plus:hover, html .woocommerce #content .quantity .plus:hover,html .woocommerce-page .quantity .plus:hover,  html .woocommerce-page #content .quantity .plus:hover{ background: #9a9a9a; }
+html .woocommerce .quantity .minus, html .woocommerce #content .quantity .minus,  html .woocommerce-page .quantity .minus,html .woocommerce-page #content .quantity .minus, html .woocommerce .quantity .minus:hover, html .woocommerce #content .quantity .minus:hover,html .woocommerce-page .quantity .minus:hover,  html .woocommerce-page #content .quantity .minus:hover{ background: #b6b6b6; }
+.gdlr-skin-dark-service, .gdlr-skin-dark-service .gdlr-skin-content{ color: #ffffff; }
+.gdlr-skin-dark-service i, .gdlr-skin-dark-service .gdlr-flex-prev, .gdlr-skin-dark-service .gdlr-flex-next{ color: #ffffff; }
+.gdlr-skin-dark-service h1, .gdlr-skin-dark-service h2, .gdlr-skin-dark-service h3, .gdlr-skin-dark-service h4, .gdlr-skin-dark-service h5, .gdlr-skin-dark-service h6, .gdlr-skin-dark-service .gdlr-skin-title, .gdlr-skin-dark-service .gdlr-skin-title a{ color: #1abc9c; }
+.gdlr-skin-dark-service .gdlr-skin-title a:hover{ color: #ffffff; }
+.gdlr-skin-dark-service .gdlr-skin-info, .gdlr-skin-dark-service .gdlr-skin-info a, .gdlr-skin-dark-service .gdlr-skin-info a:hover{ color: #ffffff; }
+.gdlr-skin-dark-service a, .gdlr-skin-dark-service .gdlr-skin-link, .gdlr-skin-dark-service .gdlr-skin-link-color{ color: #ffffff; }
+.gdlr-skin-dark-service a:hover, .gdlr-skin-dark-service .gdlr-skin-link:hover{ color: #ffffff; }
+.gdlr-skin-dark-service .gdlr-skin-box, .gdlr-skin-dark-service .gdlr-column-service-item .gdlr-skin-box, .gdlr-skin-dark-service .gdlr-flex-prev, .gdlr-skin-dark-service .gdlr-flex-next{ background-color: #ffffff; }
+.gdlr-skin-dark-service *, .gdlr-skin-dark-service .gdlr-skin-border{ border-color: #ffffff; }
+.gdlr-skin-dark-service .gdlr-button, .gdlr-skin-dark-service .gdlr-button:hover, .gdlr-skin-dark-service input[type="button"], .gdlr-skin-dark-service input[type="submit"]{ border-color: #ffffff; color: #ffffff; background-color: #ffffff;  }
+.gdlr-skin-dark-service input[type="text"], .gdlr-skin-dark-service input[type="email"], .gdlr-skin-dark-service input[type="password"], .gdlr-skin-dark-service textarea, .gdlr-skin-dark-service .gdlr-hotel-availability .gdlr-combobox-wrapper select{ color: #ffffff; }
+.gdlr-skin-dark-service input[type="text"], .gdlr-skin-dark-service input[type="email"], .gdlr-skin-dark-service input[type="password"], .gdlr-skin-dark-service textarea, .gdlr-skin-dark-service .gdlr-hotel-availability .gdlr-combobox-wrapper select, .gdlr-skin-dark-service .gdlr-hotel-availability .gdlr-combobox-wrapper select option, .gdlr-skin-dark-service .gdlr-hotel-availability .gdlr-combobox-wrapper{ background-color: #ffffff; }
+.gdlr-skin-light-grey, .gdlr-skin-light-grey .gdlr-skin-content{ color: #5e5e5e; }
+.gdlr-skin-light-grey i, .gdlr-skin-light-grey .gdlr-flex-prev, .gdlr-skin-light-grey .gdlr-flex-next{ color: #ffffff; }
+.gdlr-skin-light-grey h1, .gdlr-skin-light-grey h2, .gdlr-skin-light-grey h3, .gdlr-skin-light-grey h4, .gdlr-skin-light-grey h5, .gdlr-skin-light-grey h6, .gdlr-skin-light-grey .gdlr-skin-title, .gdlr-skin-light-grey .gdlr-skin-title a{ color: #1abc9c; }
+.gdlr-skin-light-grey .gdlr-skin-title a:hover{ color: #1abc9c; }
+.gdlr-skin-light-grey .gdlr-skin-info, .gdlr-skin-light-grey .gdlr-skin-info a, .gdlr-skin-light-grey .gdlr-skin-info a:hover{ color: #6d6d6d; }
+.gdlr-skin-light-grey a, .gdlr-skin-light-grey .gdlr-skin-link, .gdlr-skin-light-grey .gdlr-skin-link-color{ color: #ffffff; }
+.gdlr-skin-light-grey a:hover, .gdlr-skin-light-grey .gdlr-skin-link:hover{ color: #ffffff; }
+.gdlr-skin-light-grey .gdlr-skin-box, .gdlr-skin-light-grey .gdlr-column-service-item .gdlr-skin-box, .gdlr-skin-light-grey .gdlr-flex-prev, .gdlr-skin-light-grey .gdlr-flex-next{ background-color: #ffffff; }
+.gdlr-skin-light-grey *, .gdlr-skin-light-grey .gdlr-skin-border{ border-color: #ffffff; }
+.gdlr-skin-light-grey .gdlr-button, .gdlr-skin-light-grey .gdlr-button:hover, .gdlr-skin-light-grey input[type="button"], .gdlr-skin-light-grey input[type="submit"]{ border-color: #15a881; color: #ffffff; background-color: #1abc9c;  }
+.gdlr-skin-light-grey input[type="text"], .gdlr-skin-light-grey input[type="email"], .gdlr-skin-light-grey input[type="password"], .gdlr-skin-light-grey textarea, .gdlr-skin-light-grey .gdlr-hotel-availability .gdlr-combobox-wrapper select{ color: #a8a8a8; }
+.gdlr-skin-light-grey input[type="text"], .gdlr-skin-light-grey input[type="email"], .gdlr-skin-light-grey input[type="password"], .gdlr-skin-light-grey textarea, .gdlr-skin-light-grey .gdlr-hotel-availability .gdlr-combobox-wrapper select, .gdlr-skin-light-grey .gdlr-hotel-availability .gdlr-combobox-wrapper select option, .gdlr-skin-light-grey .gdlr-hotel-availability .gdlr-combobox-wrapper{ background-color: #ffffff; }
+.gdlr-skin-dark-skin, .gdlr-skin-dark-skin .gdlr-skin-content{ color: #ffffff; }
+.gdlr-skin-dark-skin i, .gdlr-skin-dark-skin .gdlr-flex-prev, .gdlr-skin-dark-skin .gdlr-flex-next{ color: #ffffff; }
+.gdlr-skin-dark-skin h1, .gdlr-skin-dark-skin h2, .gdlr-skin-dark-skin h3, .gdlr-skin-dark-skin h4, .gdlr-skin-dark-skin h5, .gdlr-skin-dark-skin h6, .gdlr-skin-dark-skin .gdlr-skin-title, .gdlr-skin-dark-skin .gdlr-skin-title a{ color: #ffffff; }
+.gdlr-skin-dark-skin .gdlr-skin-title a:hover{ color: #ffffff; }
+.gdlr-skin-dark-skin .gdlr-skin-info, .gdlr-skin-dark-skin .gdlr-skin-info a, .gdlr-skin-dark-skin .gdlr-skin-info a:hover{ color: #ffffff; }
+.gdlr-skin-dark-skin a, .gdlr-skin-dark-skin .gdlr-skin-link, .gdlr-skin-dark-skin .gdlr-skin-link-color{ color: #ffffff; }
+.gdlr-skin-dark-skin a:hover, .gdlr-skin-dark-skin .gdlr-skin-link:hover{ color: #ffffff; }
+.gdlr-skin-dark-skin .gdlr-skin-box, .gdlr-skin-dark-skin .gdlr-column-service-item .gdlr-skin-box, .gdlr-skin-dark-skin .gdlr-flex-prev, .gdlr-skin-dark-skin .gdlr-flex-next{ background-color: #1abc9c; }
+.gdlr-skin-dark-skin *, .gdlr-skin-dark-skin .gdlr-skin-border{ border-color: #ffffff; }
+.gdlr-skin-dark-skin .gdlr-button, .gdlr-skin-dark-skin .gdlr-button:hover, .gdlr-skin-dark-skin input[type="button"], .gdlr-skin-dark-skin input[type="submit"]{ border-color: #149174; color: #ffffff; background-color: #1abc9c;  }
+.gdlr-skin-dark-skin input[type="text"], .gdlr-skin-dark-skin input[type="email"], .gdlr-skin-dark-skin input[type="password"], .gdlr-skin-dark-skin textarea, .gdlr-skin-dark-skin .gdlr-hotel-availability .gdlr-combobox-wrapper select{ color: #ffffff; }
+.gdlr-skin-dark-skin input[type="text"], .gdlr-skin-dark-skin input[type="email"], .gdlr-skin-dark-skin input[type="password"], .gdlr-skin-dark-skin textarea, .gdlr-skin-dark-skin .gdlr-hotel-availability .gdlr-combobox-wrapper select, .gdlr-skin-dark-skin .gdlr-hotel-availability .gdlr-combobox-wrapper select option, .gdlr-skin-dark-skin .gdlr-hotel-availability .gdlr-combobox-wrapper{ background-color: #ffffff; }
+.gdlr-skin-service-testimonial, .gdlr-skin-service-testimonial .gdlr-skin-content{ color: #ffffff; }
+.gdlr-skin-service-testimonial i, .gdlr-skin-service-testimonial .gdlr-flex-prev, .gdlr-skin-service-testimonial .gdlr-flex-next{ color: #ffffff; }
+.gdlr-skin-service-testimonial h1, .gdlr-skin-service-testimonial h2, .gdlr-skin-service-testimonial h3, .gdlr-skin-service-testimonial h4, .gdlr-skin-service-testimonial h5, .gdlr-skin-service-testimonial h6, .gdlr-skin-service-testimonial .gdlr-skin-title, .gdlr-skin-service-testimonial .gdlr-skin-title a{ color: #ffffff; }
+.gdlr-skin-service-testimonial .gdlr-skin-title a:hover{ color: #ffffff; }
+.gdlr-skin-service-testimonial .gdlr-skin-info, .gdlr-skin-service-testimonial .gdlr-skin-info a, .gdlr-skin-service-testimonial .gdlr-skin-info a:hover{ color: #ffffff; }
+.gdlr-skin-service-testimonial a, .gdlr-skin-service-testimonial .gdlr-skin-link, .gdlr-skin-service-testimonial .gdlr-skin-link-color{ color: #ffffff; }
+.gdlr-skin-service-testimonial a:hover, .gdlr-skin-service-testimonial .gdlr-skin-link:hover{ color: #ffffff; }
+.gdlr-skin-service-testimonial .gdlr-skin-box, .gdlr-skin-service-testimonial .gdlr-column-service-item .gdlr-skin-box, .gdlr-skin-service-testimonial .gdlr-flex-prev, .gdlr-skin-service-testimonial .gdlr-flex-next{ background-color: #43655E; }
+.gdlr-skin-service-testimonial *, .gdlr-skin-service-testimonial .gdlr-skin-border{ border-color: #ffffff; }
+.gdlr-skin-service-testimonial .gdlr-button, .gdlr-skin-service-testimonial .gdlr-button:hover, .gdlr-skin-service-testimonial input[type="button"], .gdlr-skin-service-testimonial input[type="submit"]{ border-color: #ffffff; color: #ffffff; background-color: #ffffff;  }
+.gdlr-skin-service-testimonial input[type="text"], .gdlr-skin-service-testimonial input[type="email"], .gdlr-skin-service-testimonial input[type="password"], .gdlr-skin-service-testimonial textarea, .gdlr-skin-service-testimonial .gdlr-hotel-availability .gdlr-combobox-wrapper select{ color: #ffffff; }
+.gdlr-skin-service-testimonial input[type="text"], .gdlr-skin-service-testimonial input[type="email"], .gdlr-skin-service-testimonial input[type="password"], .gdlr-skin-service-testimonial textarea, .gdlr-skin-service-testimonial .gdlr-hotel-availability .gdlr-combobox-wrapper select, .gdlr-skin-service-testimonial .gdlr-hotel-availability .gdlr-combobox-wrapper select option, .gdlr-skin-service-testimonial .gdlr-hotel-availability .gdlr-combobox-wrapper{ background-color: #ffffff; }
+.gdlr-skin-services-facilities, .gdlr-skin-services-facilities .gdlr-skin-content{ color: #828282; }
+.gdlr-skin-services-facilities i, .gdlr-skin-services-facilities .gdlr-flex-prev, .gdlr-skin-services-facilities .gdlr-flex-next{ color: #1abc9c; }
+.gdlr-skin-services-facilities h1, .gdlr-skin-services-facilities h2, .gdlr-skin-services-facilities h3, .gdlr-skin-services-facilities h4, .gdlr-skin-services-facilities h5, .gdlr-skin-services-facilities h6, .gdlr-skin-services-facilities .gdlr-skin-title, .gdlr-skin-services-facilities .gdlr-skin-title a{ color: #1abc9c; }
+.gdlr-skin-services-facilities .gdlr-skin-title a:hover{ color: #1abc9c; }
+.gdlr-skin-services-facilities .gdlr-skin-info, .gdlr-skin-services-facilities .gdlr-skin-info a, .gdlr-skin-services-facilities .gdlr-skin-info a:hover{ color: #ffffff; }
+.gdlr-skin-services-facilities a, .gdlr-skin-services-facilities .gdlr-skin-link, .gdlr-skin-services-facilities .gdlr-skin-link-color{ color: #ffffff; }
+.gdlr-skin-services-facilities a:hover, .gdlr-skin-services-facilities .gdlr-skin-link:hover{ color: #ffffff; }
+.gdlr-skin-services-facilities .gdlr-skin-box, .gdlr-skin-services-facilities .gdlr-column-service-item .gdlr-skin-box, .gdlr-skin-services-facilities .gdlr-flex-prev, .gdlr-skin-services-facilities .gdlr-flex-next{ background-color: #ffffff; }
+.gdlr-skin-services-facilities *, .gdlr-skin-services-facilities .gdlr-skin-border{ border-color: #ffffff; }
+.gdlr-skin-services-facilities .gdlr-button, .gdlr-skin-services-facilities .gdlr-button:hover, .gdlr-skin-services-facilities input[type="button"], .gdlr-skin-services-facilities input[type="submit"]{ border-color: #ffffff; color: #ffffff; background-color: #ffffff;  }
+.gdlr-skin-services-facilities input[type="text"], .gdlr-skin-services-facilities input[type="email"], .gdlr-skin-services-facilities input[type="password"], .gdlr-skin-services-facilities textarea, .gdlr-skin-services-facilities .gdlr-hotel-availability .gdlr-combobox-wrapper select{ color: #ffffff; }
+.gdlr-skin-services-facilities input[type="text"], .gdlr-skin-services-facilities input[type="email"], .gdlr-skin-services-facilities input[type="password"], .gdlr-skin-services-facilities textarea, .gdlr-skin-services-facilities .gdlr-hotel-availability .gdlr-combobox-wrapper select, .gdlr-skin-services-facilities .gdlr-hotel-availability .gdlr-combobox-wrapper select option, .gdlr-skin-services-facilities .gdlr-hotel-availability .gdlr-combobox-wrapper{ background-color: #ffffff; }
