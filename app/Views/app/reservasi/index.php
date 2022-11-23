@@ -55,7 +55,16 @@
                             <td><?= $reservasi['check_in']; ?></td>
                             <td><?= $reservasi['check_out']; ?></td>
                             <td><?= $reservasi['created_at']; ?></td>
-                            <td><a href="#" class="btn btn-info btn-sm">Detail</a></td>
+                            <td>
+                                <a href="<?= base_url('/app/reservasi/detail/'.$reservasi['id']); ?>" class="btn btn-info btn-sm">Detail</a>
+                                <?php if ($session->get('level') == 3) { ?>
+                                    <a href="<?= base_url('/app/reservasi/edit/'.$reservasi['id']); ?>" class="btn btn-warning btn-sm">Ubah</a>
+                                    <?php if ($reservasi['status'] == 3) { ?>
+                                        <a href="<?= base_url('/app/pembayaran/bayar/'.$reservasi['id']); ?>" class="btn btn-primary btn-sm">Bayar</a>
+                                        <a href="<?= base_url('/app/reservasi/delete/'.$reservasi['id']); ?>" class="btn btn-danger btn-sm">Batalkan</a>
+                                    <?php } ?>
+                                <?php } ?>
+                            </td>
                         </tr>
                         <?php $i++; } ?>
                     </tbody>

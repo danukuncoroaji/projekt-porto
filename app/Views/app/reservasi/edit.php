@@ -23,14 +23,14 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url('/app'); ?>">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="<?= base_url('/app/reservasi'); ?>">Reservasi</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
                 </ol>
             </nav>
-            <h1>Tambah Reservasi</h1>
+            <h1>Edit Reservasi</h1>
         </div>
         <div class="card">
-            <form method="POST" action="<?= base_url('/app/reservasi/konfirmasi'); ?>">
-            <input type="hidden" name="id" value="">
+            <form method="POST" action="<?= base_url('/app/reservasi/konfirmasi/'); ?>">
+                <input type="hidden" name="id" value="<?= $reservasi['id'] ?>">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 mb-4">
@@ -38,7 +38,7 @@
                                 <label for="suite" class="form-label">Suite</label>
                                 <select name="suite" class="form-control">
                                     <?php foreach ($suites as $suite) { ?>
-                                    <option value="<?= $suite['id']; ?>">
+                                    <option value="<?= $suite['id']; ?>" <?php if($reservasi['id_suite'] == $suite['id'] ){ echo 'selected'; } ?>>
                                         <?= $suite['nama']; ?>
                                     </option>
                                     <?php } ?>
@@ -49,7 +49,7 @@
                         <div class="col-12 col-md-6 mb-4">
                             <div class="form-group">
                                 <label for="check_out" class="form-label">Tanggal Check in</label>
-                                <input type="date" class="form-control <?php if($validation->getError('check_in')){ echo 'is-invalid'; } ?>" name="check_in" id="check_in">
+                                <input type="date" class="form-control <?php if($validation->getError('check_in')){ echo 'is-invalid'; } ?>" name="check_in" id="check_in" value="<?= $reservasi['check_in'] ?>">
                                 <?php if($validation->getError('check_in')){ ?>
                                     <small class="text-danger">
                                         <?php echo $validation->getError('check_in'); ?>
@@ -60,7 +60,7 @@
                         <div class="col-12 col-md-6 mb-4">
                             <div class="form-group">
                                 <label for="check_out" class="form-label">Tanggal Check out</label>
-                                <input type="date" class="form-control <?php if($validation->getError('check_out')){ echo 'is-invalid'; } ?>" name="check_out" id="check_out">
+                                <input type="date" class="form-control <?php if($validation->getError('check_out')){ echo 'is-invalid'; } ?>" name="check_out" id="check_out" value="<?= $reservasi['check_out'] ?>">
                                 <?php if($validation->getError('check_out')){ ?>
                                     <small class="text-danger">
                                         <?php echo $validation->getError('check_out'); ?>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-success" type="submit">Selanjutnya</button>
+                    <button class="btn btn-success" type="submit">Simpan</button>
                 </div>
             </form>
         </div>

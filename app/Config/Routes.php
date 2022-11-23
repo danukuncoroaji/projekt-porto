@@ -93,7 +93,7 @@ $routes->get('/app/reservasi/tambah', 'ReservasiController::create',['filter' =>
 $routes->post('/app/reservasi/konfirmasi', 'ReservasiController::konfirmasi',['filter' => 'authGuard']);
 $routes->post('/app/reservasi/store', 'ReservasiController::store',['filter' => 'authGuard']);
 $routes->get('/app/reservasi/edit/(:any)', 'ReservasiController::edit/$1',['filter' => 'authGuard']);
-$routes->post('/app/reservasi/update/(:any)', 'ReservasiController::update/$1',['filter' => 'authGuard']);
+$routes->get('/app/reservasi/detail/(:any)', 'ReservasiController::detail/$1',['filter' => 'authGuard']);
 $routes->get('/app/reservasi/delete/(:any)', 'ReservasiController::delete/$1',['filter' => 'authGuard']);
 
 /*

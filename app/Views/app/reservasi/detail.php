@@ -23,14 +23,12 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url('/app'); ?>">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="<?= base_url('/app/reservasi'); ?>">Reservasi</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Konfirmasi</li>
+                    <li class="breadcrumb-item active" aria-current="page">Detail</li>
                 </ol>
             </nav>
-            <h1>Konfirmasi Reservasi</h1>
+            <h1>Detail Reservasi</h1>
         </div>
         <div class="card">
-            <form method="POST" action="<?= base_url('/app/reservasi/store'); ?>">
-            <input type="hidden" name="id_r" value="<?= $id; ?>">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 mb-4">
@@ -90,7 +88,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-success" type="submit">Selanjutnya</button>
+                    
                 </div>
             </form>
         </div>
