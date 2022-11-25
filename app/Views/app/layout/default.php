@@ -46,6 +46,8 @@
     <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script src="<?php echo base_url('assets/plugins/input-mask/jquery.inputmask.min.js'); ?>"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

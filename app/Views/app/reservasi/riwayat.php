@@ -22,10 +22,11 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url(''); ?>">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('/app/reservasi/riwayat'); ?>">Reservasi</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Reservasi</li>
                 </ol>
             </nav>
-            <h1>Reservasi</h1>
+            <h1>Riwayat Reservasi</h1>
             <span>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis viverra dapibus.<br>Maecenas
                 eleifend augue convallis tellus rhoncus scelerisque. Aliquam eu nunc sit amet velit pharetra cursus, <a href="#">disini</a>.
@@ -96,7 +97,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>No</th>
+                        <th>No</th>
                             <th>Suite</th>
                             <th>Check in</th>
                             <th>Check out</th>

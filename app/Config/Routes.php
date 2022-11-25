@@ -57,11 +57,11 @@ $routes->get('/app/galeri/delete/(:any)', 'GaleriController::delete/$1',['filter
 
 //Pembayaran
 $routes->get('/app/pembayaran', 'PembayaranController::index',['filter' => 'authGuard']);
-$routes->get('/app/pembayaran/tambah', 'PembayaranController::create',['filter' => 'authGuard']);
-$routes->post('/app/pembayaran/store', 'PembayaranController::store',['filter' => 'authGuard']);
-$routes->get('/app/pembayaran/edit/(:any)', 'PembayaranController::edit/$1',['filter' => 'authGuard']);
-$routes->post('/app/pembayaran/update/(:any)', 'PembayaranController::update/$1',['filter' => 'authGuard']);
-$routes->get('/app/pembayaran/delete/(:any)', 'PembayaranController::delete/$1',['filter' => 'authGuard']);
+$routes->get('/app/pembayaran/bayar/(:any)', 'PembayaranController::bayar/$1',['filter' => 'authGuard']);
+$routes->get('/app/pembayaran/detail/(:any)', 'PembayaranController::detail/$1',['filter' => 'authGuard']);
+$routes->get('/app/pembayaran/konfirmasi/(:any)', 'PembayaranController::konfirmasi/$1',['filter' => 'authGuard']);
+$routes->get('/app/pembayaran/tolak/(:any)', 'PembayaranController::tolak/$1',['filter' => 'authGuard']);
+$routes->get('/app/pembayaran/riwayat', 'PembayaranController::riwayat',['filter' => 'authGuard']);
 
 //customer
 $routes->get('/app/customer', 'CustomerController::index',['filter' => 'authGuard']);
@@ -95,6 +95,7 @@ $routes->post('/app/reservasi/store', 'ReservasiController::store',['filter' => 
 $routes->get('/app/reservasi/edit/(:any)', 'ReservasiController::edit/$1',['filter' => 'authGuard']);
 $routes->get('/app/reservasi/detail/(:any)', 'ReservasiController::detail/$1',['filter' => 'authGuard']);
 $routes->get('/app/reservasi/delete/(:any)', 'ReservasiController::delete/$1',['filter' => 'authGuard']);
+$routes->get('/app/reservasi/riwayat', 'ReservasiController::riwayat',['filter' => 'authGuard']);
 
 /*
  * --------------------------------------------------------------------

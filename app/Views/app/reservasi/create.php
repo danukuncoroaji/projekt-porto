@@ -49,7 +49,7 @@
                         <div class="col-12 col-md-6 mb-4">
                             <div class="form-group">
                                 <label for="check_out" class="form-label">Tanggal Check in</label>
-                                <input type="date" class="form-control <?php if($validation->getError('check_in')){ echo 'is-invalid'; } ?>" name="check_in" id="check_in">
+                                <input type="date" class="form-control <?php if($validation->getError('check_in')){ echo 'is-invalid'; } ?>" name="check_in" id="check_in" min='<?= date('Y-m-d') ?>' value="<?= date('Y-m-d') ?>">
                                 <?php if($validation->getError('check_in')){ ?>
                                     <small class="text-danger">
                                         <?php echo $validation->getError('check_in'); ?>
@@ -60,7 +60,8 @@
                         <div class="col-12 col-md-6 mb-4">
                             <div class="form-group">
                                 <label for="check_out" class="form-label">Tanggal Check out</label>
-                                <input type="date" class="form-control <?php if($validation->getError('check_out')){ echo 'is-invalid'; } ?>" name="check_out" id="check_out">
+                                <input type="date" class="form-control <?php if($validation->getError('check_out')){ echo 'is-invalid'; } ?>" name="check_out" id="check_out" min='<?php $datetime = new DateTime('tomorrow');
+echo $datetime->format('Y-m-d'); ?>' value="<?= $datetime->format('Y-m-d') ?>">
                                 <?php if($validation->getError('check_out')){ ?>
                                     <small class="text-danger">
                                         <?php echo $validation->getError('check_out'); ?>

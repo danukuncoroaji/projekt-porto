@@ -22,10 +22,11 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url(''); ?>">Beranda</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Reservasi</li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('/app/pembayaran'); ?>">Pembayaran</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Riwayat</li>
                 </ol>
             </nav>
-            <h1>Reservasi</h1>
+            <h1>Riwayat Pembayaran</h1>
             <span>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis viverra dapibus.<br>Maecenas
                 eleifend augue convallis tellus rhoncus scelerisque. Aliquam eu nunc sit amet velit pharetra cursus, <a href="#">disini</a>.
@@ -37,57 +38,48 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Suite</th>
-                            <th>Check in</th>
-                            <th>Check out</th>
-                            <th>Kategori Pembayaran</th>
-                            <th>Status Pembayaran</th>
+                            <th>Invoice</th>
+                            <th>Reservasi</th>
+                            <th>Kategori</th>
+                            <th>Jumlah</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $i = 1;
-                        foreach ($reservasis as $reservasi) { ?>
+                        foreach ($pembayarans as $pembayaran) { ?>
                             <tr>
                                 <td><?= $i; ?></td>
-                                <td><?= $reservasi['suite_name']; ?></td>
-                                <td><?= $reservasi['check_in']; ?></td>
-                                <td><?= $reservasi['check_out']; ?></td>
+                                <td><?= $pembayaran['id']; ?></td>
+                                <td><a href="<?= base_url('/app/reservasi/detail/' . $pembayaran['id_reservasi']); ?>">detail</a></td>
                                 <td>
-                                    <?php if ($reservasi['kategori_pembayaran'] == '1') { ?>
+                                    <?php if ($pembayaran['kategori'] == '1') { ?>
                                         <span class="badge badge-secondary">Full</span>
-                                    <?php } else if ($reservasi['kategori_pembayaran'] == '2') { ?>
+                                    <?php } else if ($pembayaran['kategori'] == '2') { ?>
                                         <span class="badge badge-secondary">DP 50%</span>
                                     <?php } else { ?>
                                         -
                                     <?php } ?>
                                 </td>
-                                <td> <?php if ($reservasi['status'] == '1') { ?>
-                                        <span class="badge badge-warning">Belum Bayar</span>
-                                    <?php } else if ($reservasi['status'] == '2') { ?>
-                                        <span class="badge badge-secondary">Belum Lunas</span>
-                                    <?php } else if ($reservasi['status'] == '3') { ?>
+                                <td class="currency"><?= $pembayaran['jumlah']; ?></td>
+                                <td><?= $pembayaran['created_at']; ?></td>
+                                <td>
+                                    <?php if ($pembayaran['status'] == '1') { ?>
                                         <span class="badge badge-info">Menunggu Konfirmasi</span>
-                                    <?php } else if ($reservasi['status'] == '4') { ?>
-                                        <span class="badge badge-success">Terkonfirmasi</span>
-                                    <?php } else if ($reservasi['status'] == '5') { ?>
+                                    <?php } else if ($pembayaran['status'] == '2') { ?>
+                                        <span class="badge badge-success">Lunas</span>
+                                    <?php } else if ($pembayaran['status'] == '3') { ?>
                                         <span class="badge badge-danger">Ditolak</span>
-                                    <?php } else { ?>
-                                        <span class="badge badge-warning">Belum bayar</span>
                                     <?php } ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url('/app/reservasi/detail/' . $reservasi['id']); ?>" class="btn btn-info btn-sm">Detail</a>
-                                    <?php if ($session->get('level') == 3) { ?>
-                                        <?php if ($reservasi['status'] == 1) { ?>
-                                            <a href="<?= base_url('/app/reservasi/edit/' . $reservasi['id']); ?>" class="btn btn-warning btn-sm">Ubah</a>
-                                            <a href="<?= base_url('/app/pembayaran/bayar/' . $reservasi['id']); ?>" class="btn btn-primary btn-sm">Bayar</a>
-                                            <a href="<?= base_url('/app/reservasi/delete/' . $reservasi['id']); ?>" class="btn btn-outline-danger btn-sm">Batalkan</a>
-                                        <?php } ?>
-                                        <?php if ($reservasi['status'] == 2) { ?>
-                                            <a href="<?= base_url('/app/pembayaran/bayar/' . $reservasi['id']); ?>" class="btn btn-primary btn-sm">Bayar sisa tagihan</a>
-                                        <?php } ?>
+                                    <a href="<?= base_url('/app/pembayaran/detail/'.$pembayaran['id']); ?>" class="btn btn-info btn-sm">Detail</a>
+                                    <?php if (($session->get('level') == 1 || $session->get('level') == 2) && $pembayaran['status'] == '1') { ?>
+                                        <a href="<?= base_url('/app/pembayaran/konfirmasi/'.$pembayaran['id']); ?>" class="btn btn-success btn-sm">Konfirmasi</a>
+                                        <a href="<?= base_url('/app/pembayaran/tolak/'.$pembayaran['id']); ?>" class="btn btn-danger btn-sm">Tolak</a>
                                     <?php } ?>
                                 </td>
                             </tr>
@@ -97,21 +89,17 @@
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>Suite</th>
-                            <th>Check in</th>
-                            <th>Check out</th>
-                            <th>Kategori Pembayaran</th>
-                            <th>Status Pembayaran</th>
+                            <th>Invoice</th>
+                            <th>Reservasi</th>
+                            <th>Kategori</th>
+                            <th>Jumlah</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>
                 </table>
             </div>
-            <?php if ($session->get('level') == 3) { ?>
-                <div class="card-footer">
-                    <a class="btn btn-success" href="<?= base_url('/app/reservasi/tambah'); ?>">Tambah Reservasi</a>
-                </div>
-            <?php } ?>
         </div>
     </div>
 </div>

@@ -1,22 +1,22 @@
-<?=$this->extend('app/layout/default')?>
-<?=$this->section('content')?>
+<?= $this->extend('app/layout/default') ?>
+<?= $this->section('content') ?>
 <div class="row">
-    <?php if(session()->getFlashdata('error')):?>
-    <div class="col-12">
-        <div class="alert alert-danger text-white">
-            <strong>Terdapat Kesalahan !</strong>
-            <?= session()->getFlashdata('error'); ?>
+    <?php if (session()->getFlashdata('error')) : ?>
+        <div class="col-12">
+            <div class="alert alert-danger text-white">
+                <strong>Terdapat Kesalahan !</strong>
+                <?= session()->getFlashdata('error'); ?>
+            </div>
         </div>
-    </div>
-    <?php endif;?>
-    <?php if(session()->getFlashdata('success')):?>
-    <div class="col-12">
-        <div class="alert alert-success text-white">
-            <i class="fas fa-check"></i>
-            <?= session()->getFlashdata('success') ?>
+    <?php endif; ?>
+    <?php if (session()->getFlashdata('success')) : ?>
+        <div class="col-12">
+            <div class="alert alert-success text-white">
+                <i class="fas fa-check"></i>
+                <?= session()->getFlashdata('success') ?>
+            </div>
         </div>
-    </div>
-    <?php endif;?>
+    <?php endif; ?>
     <div class="col">
         <div class="page-description">
             <nav aria-label="breadcrumb">
@@ -28,8 +28,7 @@
             <h1>Pembayaran</h1>
             <span>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis viverra dapibus.<br>Maecenas
-                eleifend augue convallis tellus rhoncus scelerisque. Aliquam eu nunc sit amet velit pharetra cursus, <a
-                    href="#">disini</a>.
+                eleifend augue convallis tellus rhoncus scelerisque. Aliquam eu nunc sit amet velit pharetra cursus, <a href="#">disini</a>.
             </span>
         </div>
         <div class="card">
@@ -38,8 +37,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Invoice</th>
                             <th>Reservasi</th>
-                            <th>Nama</th>
+                            <th>Kategori</th>
                             <th>Jumlah</th>
                             <th>Tanggal</th>
                             <th>Status</th>
@@ -47,48 +47,50 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="#">1150</a></td>
-                            <td>Lorem ipsum dolor</td>
-                            <td>Rp 500.000</td>
-                            <td>01-01-2023</td>
-                            <td><span class="badge badge-warning">DP 50%</span></td>
-                            <td>
-                                <a href="<?= base_url('app/pembayaran/detail/1'); ?>"
-                                    class="btn btn-info btn-sm">Detail</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="#">1151</a></td>
-                            <td>Lorem ipsum dolor</td>
-                            <td>Rp 500.000</td>
-                            <td>01-01-2023</td>
-                            <td><span class="badge badge-info">Lunas</span></td>
-                            <td>
-                                <a href="<?= base_url('app/pembayaran/detail/1'); ?>"
-                                    class="btn btn-info btn-sm">Detail</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="#">1155</a></td>
-                            <td>Lorem ipsum dolor</td>
-                            <td>Rp 500.000</td>
-                            <td>01-01-2023</td>
-                            <td><span class="badge badge-danger">Belum bayar</span></td>
-                            <td>
-                                <a href="<?= base_url('app/pembayaran/detail/1'); ?>"
-                                    class="btn btn-info btn-sm">Detail</a>
-                            </td>
-                        </tr>
+                        <?php
+                        $i = 1;
+                        foreach ($pembayarans as $pembayaran) { ?>
+                            <tr>
+                                <td><?= $i; ?></td>
+                                <td><?= $pembayaran['id']; ?></td>
+                                <td><a href="<?= base_url('/app/reservasi/detail/' . $pembayaran['id_reservasi']); ?>">detail</a></td>
+                                <td>
+                                    <?php if ($pembayaran['kategori'] == '1') { ?>
+                                        <span class="badge badge-secondary">Full</span>
+                                    <?php } else if ($pembayaran['kategori'] == '2') { ?>
+                                        <span class="badge badge-secondary">DP 50%</span>
+                                    <?php } else { ?>
+                                        -
+                                    <?php } ?>
+                                </td>
+                                <td class="currency"><?= $pembayaran['jumlah']; ?></td>
+                                <td><?= $pembayaran['created_at']; ?></td>
+                                <td>
+                                    <?php if ($pembayaran['status'] == '1') { ?>
+                                        <span class="badge badge-info">Menunggu Konfirmasi</span>
+                                    <?php } else if ($pembayaran['status'] == '2') { ?>
+                                        <span class="badge badge-success">Lunas</span>
+                                    <?php } else if ($pembayaran['status'] == '3') { ?>
+                                        <span class="badge badge-danger">Ditolak</span>
+                                    <?php } ?>
+                                </td>
+                                <td>
+                                    <a href="<?= base_url('/app/pembayaran/detail/'.$pembayaran['id']); ?>" class="btn btn-info btn-sm">Detail</a>
+                                    <?php if (($session->get('level') == 1 || $session->get('level') == 2) && $pembayaran['status'] == '') { ?>
+                                        <a href="<?= base_url('/app/pembayaran/konfirmasi/'.$pembayaran['id']); ?>" class="btn btn-success btn-sm">Konfirmasi</a>
+                                        <a href="<?= base_url('/app/pembayaran/tolak/'.$pembayaran['id']); ?>" class="btn btn-danger btn-sm">Tolak</a>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                        <?php $i++;
+                        } ?>
                     </tbody>
                     <tfoot>
                         <tr>
-                        <th>No</th>
+                            <th>No</th>
+                            <th>Invoice</th>
                             <th>Reservasi</th>
-                            <th>Nama</th>
+                            <th>Kategori</th>
                             <th>Jumlah</th>
                             <th>Tanggal</th>
                             <th>Status</th>
@@ -130,4 +132,4 @@
         }
     });
 </script>
-<?=$this->endSection()?>
+<?= $this->endSection() ?>

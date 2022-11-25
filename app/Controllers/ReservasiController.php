@@ -42,13 +42,43 @@ class ReservasiController extends BaseController
         if ($this->level == 1) {
             $reservasis = $this->reservasi->findAll();
         } else if ($this->level == 3) {
-            $reservasis = $this->reservasi->where('id_user', $this->session->get('id'))->findAll();
+            $reservasis = $this->reservasi
+            ->where('id_user', $this->session->get('id'))
+            ->where('DATE(check_out) > ', date('Y-m-d'))
+            ->orderBy('created_at','DESC')->findAll();
         }
         foreach ($reservasis as $key => $value) {
             $reservasis[$key]['suite_name'] = $this->suite->find($reservasis[$key]['id_suite'])['nama'];
+            $last = $this->pembayaran->where('id_reservasi', $reservasis[$key]['id'])->orderBy('created_at', 'desc')->first();
+
+            $reservasis[$key]['kategori_pembayaran'] = $last ? $last['kategori'] : 0;
+            $reservasis[$key]['status_pembayaran'] = $last ? $last['status'] : 0;
         }
+        // dd($reservasis);
         $this->data['reservasis'] = $reservasis;
         return view('app/reservasi/index', $this->data);
+    }
+
+    public function riwayat()
+    {
+        if ($this->level == 1) {
+            $reservasis = $this->reservasi->findAll();
+        } else if ($this->level == 3) {
+            $reservasis = $this->reservasi
+            ->where('id_user', $this->session->get('id'))
+            ->where('DATE(check_out) < ', date('Y-m-d'))
+            ->orderBy('created_at','DESC')->findAll();
+        }
+        foreach ($reservasis as $key => $value) {
+            $reservasis[$key]['suite_name'] = $this->suite->find($reservasis[$key]['id_suite'])['nama'];
+            $last = $this->pembayaran->where('id_reservasi', $reservasis[$key]['id'])->orderBy('created_at', 'desc')->first();
+
+            $reservasis[$key]['kategori_pembayaran'] = $last ? $last['kategori'] : 0;
+            $reservasis[$key]['status_pembayaran'] = $last ? $last['status'] : 0;
+        }
+        // dd($reservasis);
+        $this->data['reservasis'] = $reservasis;
+        return view('app/reservasi/riwayat', $this->data);
     }
 
     public function create()
@@ -101,8 +131,10 @@ class ReservasiController extends BaseController
             $this->data['total'] = $total;
             $this->data['datas'] = $data;
 
-            if(!empty($this->request->getVar('id'))){
+            if (!empty($this->request->getVar('id'))) {
                 $this->data['id'] = $this->request->getVar('id');
+            } else {
+                $this->data['id'] = "";
             }
 
             return view('app/reservasi/konfirmasi', $this->data);
@@ -116,18 +148,19 @@ class ReservasiController extends BaseController
     {
         try {
             $id_r = $this->request->getVar('id_r');
-            if(empty($id_r)){
+            if (empty($id_r)) {
                 $this->reservasi->insert([
+                    'id' => $this->generateInvoice(),
                     'id_suite' => $this->request->getVar('suite'),
                     'id_user' => $this->session->get('id'),
                     'check_in' => $this->request->getVar('check_in'),
                     'check_out' => $this->request->getVar('check_out'),
                     'harga' => $this->request->getVar('total'),
-                    'status' => 3,
+                    'status' => 1,
                 ]);
                 session()->setFlashdata('success', "Reservasi berhasil ditambah.");
-            }else{
-                $this->reservasi->update($id_r,[
+            } else {
+                $this->reservasi->update($id_r, [
                     'id_suite' => $this->request->getVar('suite'),
                     'check_in' => $this->request->getVar('check_in'),
                     'check_out' => $this->request->getVar('check_out'),
@@ -170,6 +203,11 @@ class ReservasiController extends BaseController
             array_push($data, [$date->format("Y-m-d"), $sub, $status]);
         }
 
+        $last = $this->pembayaran->where('id_reservasi', $reservasi['id'])->orderBy('created_at', 'desc')->first();
+
+        $reservasi['kategori_pembayaran'] = $last ? $last['kategori'] : 0;
+        $reservasi['status_pembayaran'] = $last ? $last['status'] : 0;
+
         $this->data['suite'] = $this->suite->find($reservasi['id_suite'])['nama'];
         $this->data['suite_id'] = $reservasi['id_suite'];
         $this->data['check_in'] = $reservasi['check_in'];
@@ -179,6 +217,9 @@ class ReservasiController extends BaseController
         $this->data['malam'] = $checkout->diff($checkin)->format("%a");
         $this->data['total'] = $total;
         $this->data['datas'] = $data;
+        $this->data['reservasi'] = $reservasi;
+        $this->data['pembayarans'] = $this->pembayaran->where('id_reservasi', $id)->orderBy('created_at', 'desc')->findAll();
+
         // dd($this->data);
         return view('app/reservasi/detail', $this->data);
     }
@@ -190,30 +231,10 @@ class ReservasiController extends BaseController
         return view('app/reservasi/edit', $this->data);
     }
 
-    public function update($id)
-    {
-        try {
-            $this->reservasi->insert([
-                'id_suite' => $this->request->getVar('suite'),
-                'id_user' => $this->session->get('id'),
-                'check_in' => $this->request->getVar('check_in'),
-                'check_out' => $this->request->getVar('check_out'),
-                'harga' => $this->request->getVar('total'),
-                'status' => 3,
-            ]);
-
-            session()->setFlashdata('success', "Reservasi berhasil diubah.");
-            return redirect()->to('/app/reservasi');
-        } catch (\Exception $e) {
-            session()->setFlashdata('error', $e->getMessage());
-            return redirect()->to('/app/reservasi')->withInput(); //->with('validation', $this->validator);
-        }
-    }
-
     public function delete($id)
     {
         try {
-            
+
             $this->reservasi->delete($id);
 
             session()->setFlashdata('success', "Reservasi dibatalkan.");
@@ -228,5 +249,21 @@ class ReservasiController extends BaseController
     {
         $weekDay = date('w', strtotime($date));
         return ($weekDay == 0 || $weekDay == 6);
+    }
+
+    function generateInvoice()
+    {
+        $q = $this->reservasi->select('MAX(RIGHT(id,4)) as kd_max')->where('DATE(created_at)', date('Y-m-d'))->findAll();
+        $kd = "";
+        if (count($q) > 0) {
+            foreach ($q as $k) {
+                $tmp = ((int)$k['kd_max']) + 1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        } else {
+            $kd = "0001";
+        }
+        date_default_timezone_set('Asia/Jakarta');
+        return 'RES' . date('dmy') . $kd;
     }
 }
