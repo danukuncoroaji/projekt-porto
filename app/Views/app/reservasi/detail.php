@@ -88,12 +88,12 @@
                 </div>
             </div>
 
-            <?php if ($reservasi['status_pembayaran'] == 0) { ?>
+            <?php if ($session->get('level') == 3 && $reservasi['status_pembayaran'] == 0) { ?>
                 <div class="card-footer">
                     <a href="<?= base_url('/app/pembayaran/bayar/' . $reservasi['id']); ?>" class="btn btn-primary">Bayar</a>
                     <a href="<?= base_url('/app/reservasi/delete/' . $reservasi['id']); ?>" class="btn btn-outline-danger">Batalkan</a>
                 </div>
-            <?php } else if ($reservasi['status_pembayaran'] == 1) { ?>
+            <?php } else if ($session->get('level') == 3 && $reservasi['status_pembayaran'] == 1) { ?>
                 <div class="card-footer">
                     <a href="<?= base_url('/app/pembayaran/bayar/' . $reservasi['id']); ?>" class="btn btn-primary">Bayar sisa tagihan</a>
                 </div>
