@@ -40,12 +40,12 @@ class ReservasiController extends BaseController
     public function index()
     {
         if ($this->level == 1) {
-            $reservasis = $this->reservasi->findAll();
+            $reservasis = $this->reservasi->orderBy('check_in','DESC')->findAll();
         } else if ($this->level == 3) {
             $reservasis = $this->reservasi
             ->where('id_user', $this->session->get('id'))
             ->where('DATE(check_out) > ', date('Y-m-d'))
-            ->orderBy('created_at','DESC')->findAll();
+            ->orderBy('check_in','DESC')->findAll();
         }
         foreach ($reservasis as $key => $value) {
             $reservasis[$key]['suite_name'] = $this->suite->find($reservasis[$key]['id_suite'])['nama'];
@@ -67,7 +67,7 @@ class ReservasiController extends BaseController
             $reservasis = $this->reservasi
             ->where('id_user', $this->session->get('id'))
             ->where('DATE(check_out) < ', date('Y-m-d'))
-            ->orderBy('created_at','DESC')->findAll();
+            ->orderBy('check_in','DESC')->findAll();
         }
         foreach ($reservasis as $key => $value) {
             $reservasis[$key]['suite_name'] = $this->suite->find($reservasis[$key]['id_suite'])['nama'];
