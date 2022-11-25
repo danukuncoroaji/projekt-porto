@@ -31,6 +31,10 @@
         <div class="card">
                 <div class="card-body">
                     <div class="row">
+                        <div class="col-12 col-lg-3 mb-4">
+                            <label class="mb-2">Kode</label>
+                            <h5><?= $pembayaran['id']; ?></h5>
+                        </div>
                         <div class="col-12 mb-4">
                             <label class="mb-2">Tagihan</label>
                             <h5 class="currency"><?= $pembayaran['jumlah']; ?></h5>

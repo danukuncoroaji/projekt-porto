@@ -218,6 +218,12 @@ class ReservasiController extends BaseController
         $this->data['total'] = $total;
         $this->data['datas'] = $data;
         $this->data['reservasi'] = $reservasi;
+
+        $cek1 = $this->pembayaran->select('sum(jumlah) as jumlah')->where('id_reservasi', $id)->where('status',2)->first();
+        $this->data['sudah'] = $cek1['jumlah'] ? $cek1['jumlah'] : 0;
+        $cek2 = $this->pembayaran->select('sum(jumlah) as jumlah')->where('id_reservasi', $id)->where('status',1)->first();
+        $this->data['nunggu'] = $cek2['jumlah'] ? $cek2['jumlah'] : 0;
+        $this->data['kurang'] = $reservasi['harga'] - $this->data['sudah'];
         $this->data['pembayarans'] = $this->pembayaran->where('id_reservasi', $id)->orderBy('created_at', 'desc')->findAll();
 
         // dd($this->data);

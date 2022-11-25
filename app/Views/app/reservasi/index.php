@@ -88,6 +88,10 @@
                                         <?php if ($reservasi['status'] == 2) { ?>
                                             <a href="<?= base_url('/app/pembayaran/bayar/' . $reservasi['id']); ?>" class="btn btn-primary btn-sm">Bayar sisa tagihan</a>
                                         <?php } ?>
+                                    <?php }else if($session->get('level') == 1 || $session->get('level') == 2){ ?>
+                                        <?php if ($reservasi['status'] == 1) { ?>
+                                        <a href="<?= base_url('/app/reservasi/delete/' . $reservasi['id']); ?>" class="btn btn-outline-danger btn-sm">Batalkan</a>
+                                        <?php } ?>
                                     <?php } ?>
                                 </td>
                             </tr>

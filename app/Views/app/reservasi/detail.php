@@ -31,11 +31,16 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12 mb-4">
+                    <div class="col-12 col-lg-3 mb-4">
+                        <label class="mb-2">Kode</label>
+                        <h5><?= $reservasi['id']; ?></h5>
+                    </div>
+                    <div class="col-12 col-lg-3 mb-4">
                         <label class="mb-2">Suite</label>
                         <h5><?= $suite; ?></h5>
                         <input type="hidden" name="suite" value="<?= $suite_id; ?>">
                     </div>
+                    <div class="col-12"></div>
                     <div class="col-12 col-lg-3 mb-4">
                         <label class="mb-2">Tanggal Check in</label>
                         <h5><?= $check_in; ?></h5>
@@ -49,6 +54,28 @@
                     <div class="col-12 col-lg-3 mb-4">
                         <label class="mb-2">Jangka waktu</label>
                         <h5><?= $malam; ?> Malam</h5>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <hr>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <label class="mb-2">Tagihan</label>
+                        <h5 class="currency"><?= $reservasi['harga']; ?></h5>
+                    </div>
+                    <div class="col-12 col-lg-3 mb-4">
+                        <label class="mb-2">Yang sudah dibayar</label>
+                        <h5 class="currency"><?= $sudah; ?></h5>
+                    </div>
+                    <div class="col-12 col-lg-3 mb-4">
+                        <label class="mb-2">Sedang menunggu konfirmasi</label>
+                        <h5 class="currency"><?= $nunggu; ?></h5>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <label class="mb-2">Total Tagihan</label>
+                        <h5 class="currency"><?= $kurang; ?></h5>
+                    </div>
+                    <div class="col-12 mb-4">
+                        <hr>
                     </div>
                     <div class="col-12 mb-4">
                         <label class="mb-2">Detail</label>
