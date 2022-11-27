@@ -182,7 +182,6 @@
                     if ($reservasi['status'] != 1) {
                 ?> {
                             title: "<?= $reservasi['suite_name'] ?>",
-                            url: "<?= base_url('/app/reservasi/detail/' . $reservasi['id']); ?>",
                             start: "<?= $reservasi['check_in'] ?>",
                             end: "<?= date('Y-m-d', strtotime($reservasi['check_out'] . ' +1 days')); ?>"
                         },
