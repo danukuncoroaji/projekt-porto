@@ -95,6 +95,9 @@
         $(this).html(formatRupiah($(this).html(), 'Rp '));
     });
 
+
+    
+
     function formatRupiah(angka, prefix) {
         var number_string = angka.replace(/[^,\d]/g, '').toString(),
             split = number_string.split(','),

@@ -58,6 +58,8 @@ $routes->get('/app/galeri/delete/(:any)', 'GaleriController::delete/$1',['filter
 //Pembayaran
 $routes->get('/app/pembayaran', 'PembayaranController::index',['filter' => 'authGuard']);
 $routes->get('/app/pembayaran/bayar/(:any)', 'PembayaranController::bayar/$1',['filter' => 'authGuard']);
+$routes->post('/app/pembayaran/store/', 'PembayaranController::store',['filter' => 'authGuard']);
+
 $routes->get('/app/pembayaran/detail/(:any)', 'PembayaranController::detail/$1',['filter' => 'authGuard']);
 $routes->get('/app/pembayaran/konfirmasi/(:any)', 'PembayaranController::konfirmasi/$1',['filter' => 'authGuard']);
 $routes->get('/app/pembayaran/tolak/(:any)', 'PembayaranController::tolak/$1',['filter' => 'authGuard']);
@@ -81,11 +83,11 @@ $routes->get('/app/admin/delete/(:any)', 'AdminController::delete/$1',['filter' 
 
 //tanggal
 $routes->get('/app/tanggal', 'TanggalController::index',['filter' => 'authGuard']);
-$routes->get('/app/tanggal/tambah', 'TanggalController::create',['filter' => 'authGuard']);
 $routes->post('/app/tanggal/store', 'TanggalController::store',['filter' => 'authGuard']);
+$routes->get('/app/tanggal/kategori/edit/(:any)', 'TanggalController::editKategori/$1',['filter' => 'authGuard']);
+$routes->post('/app/tanggal/kategori/update/(:any)', 'TanggalController::updateKategori/$1',['filter' => 'authGuard']);
 $routes->get('/app/tanggal/edit/(:any)', 'TanggalController::edit/$1',['filter' => 'authGuard']);
 $routes->post('/app/tanggal/update/(:any)', 'TanggalController::update/$1',['filter' => 'authGuard']);
-$routes->get('/app/tanggal/delete/(:any)', 'TanggalController::delete/$1',['filter' => 'authGuard']);
 
 //reservasi
 $routes->get('/app/reservasi', 'ReservasiController::index',['filter' => 'authGuard']);

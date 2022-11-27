@@ -31,6 +31,8 @@
         <div class="card">
             <form method="POST" action="<?= base_url('/app/reservasi/store'); ?>">
             <input type="hidden" name="id_r" value="<?= $id; ?>">
+            <input type="hidden" name="id_u" value="<?= $id_u; ?>">
+            <input type="hidden" name="keluarga" value="<?= $keluarga; ?>">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 mb-4">

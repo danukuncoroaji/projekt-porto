@@ -11,6 +11,7 @@ use App\Models\Pembayaran;
 use App\Models\Reservasi;
 use App\Models\Suites;
 use App\Models\KategoriHarga;
+use App\Models\Harga;
 
 class ReservasiController extends BaseController
 {
@@ -22,6 +23,7 @@ class ReservasiController extends BaseController
     protected $pembayaran;
     protected $suite;
     protected $harga;
+    protected $kategori_harga;
 
     public function __construct()
     {
@@ -34,26 +36,38 @@ class ReservasiController extends BaseController
         $this->reservasi = new Reservasi();
         $this->pembayaran = new Pembayaran();
         $this->suite = new Suites();
-        $this->harga = new KategoriHarga();
+        $this->harga = new Harga();
+        $this->kategori_harga = new KategoriHarga();
     }
 
     public function index()
     {
+        $reservasi_1 = $this->reservasi->findAll();
         if ($this->level == 1) {
-            $reservasis = $this->reservasi->orderBy('check_in','DESC')->findAll();
+            $reservasis = $this->reservasi
+                ->orderBy('check_in', 'DESC')
+                ->where('DATE(check_out) > ', date('Y-m-d'))
+                ->orderBy('check_in', 'DESC')
+                ->findAll();
         } else if ($this->level == 3) {
             $reservasis = $this->reservasi
-            ->where('id_user', $this->session->get('id'))
-            ->where('DATE(check_out) > ', date('Y-m-d'))
-            ->orderBy('check_in','DESC')->findAll();
+                ->where('id_user', $this->session->get('id'))
+                ->where('DATE(check_out) > ', date('Y-m-d'))
+                ->orderBy('check_in', 'DESC')->findAll();
         }
         foreach ($reservasis as $key => $value) {
             $reservasis[$key]['suite_name'] = $this->suite->find($reservasis[$key]['id_suite'])['nama'];
+            $reservasis[$key]['pemesan'] = $this->user->find($reservasis[$key]['id_user'])['nama'];
             $last = $this->pembayaran->where('id_reservasi', $reservasis[$key]['id'])->orderBy('created_at', 'desc')->first();
 
             $reservasis[$key]['kategori_pembayaran'] = $last ? $last['kategori'] : 0;
             $reservasis[$key]['status_pembayaran'] = $last ? $last['status'] : 0;
         }
+        foreach ($reservasi_1 as $key => $value) {
+            $reservasi_1[$key]['suite_name'] = $this->suite->find($reservasi_1[$key]['id_suite'])['nama'];
+            $reservasi_1[$key]['pemesan'] = $this->user->find($reservasi_1[$key]['id_user'])['nama'];
+        }
+        $this->data['reservasis_1'] = $reservasi_1;
         // dd($reservasis);
         $this->data['reservasis'] = $reservasis;
         return view('app/reservasi/index', $this->data);
@@ -65,12 +79,13 @@ class ReservasiController extends BaseController
             $reservasis = $this->reservasi->findAll();
         } else if ($this->level == 3) {
             $reservasis = $this->reservasi
-            ->where('id_user', $this->session->get('id'))
-            ->where('DATE(check_out) < ', date('Y-m-d'))
-            ->orderBy('check_in','DESC')->findAll();
+                ->where('id_user', $this->session->get('id'))
+                ->where('DATE(check_out) < ', date('Y-m-d'))
+                ->orderBy('check_in', 'DESC')->findAll();
         }
         foreach ($reservasis as $key => $value) {
             $reservasis[$key]['suite_name'] = $this->suite->find($reservasis[$key]['id_suite'])['nama'];
+            $reservasis[$key]['pemesan'] = $this->user->find($reservasis[$key]['id_user'])['nama'];
             $last = $this->pembayaran->where('id_reservasi', $reservasis[$key]['id'])->orderBy('created_at', 'desc')->first();
 
             $reservasis[$key]['kategori_pembayaran'] = $last ? $last['kategori'] : 0;
@@ -84,6 +99,15 @@ class ReservasiController extends BaseController
     public function create()
     {
         $this->data['suites'] = $this->suite->findAll();
+        $this->data['users'] = $this->user->where('level', 3)->findAll();
+
+        $reservasi_1 = $this->reservasi->findAll();
+        foreach ($reservasi_1 as $key => $value) {
+            $reservasi_1[$key]['suite_name'] = $this->suite->find($reservasi_1[$key]['id_suite'])['nama'];
+            $reservasi_1[$key]['pemesan'] = $this->user->find($reservasi_1[$key]['id_user'])['nama'];
+        }
+        $this->data['reservasis_1'] = $reservasi_1;
+
         return view('app/reservasi/create', $this->data);
     }
 
@@ -98,46 +122,76 @@ class ReservasiController extends BaseController
             if (!$valid) {
                 throw new \Exception($this->validator->listErrors());
             }
+            $id_u = 0;
+            if ($this->level == 1) {
+                $id_u = $this->request->getVar('customer');
+            }
 
-            $harga_weekday = $this->harga->where('id_suite', $this->request->getVar('suite'))->where('nama', 'weekday')->first()['harga'];
-            $harga_weekend = $this->harga->where('id_suite', $this->request->getVar('suite'))->where('nama', 'weekend')->first()['harga'];
+            $status = true;
 
-            $checkin =  new \DateTime($this->request->getVar('check_in'));
-            $checkout =  new \DateTime(date('Y-m-d', strtotime($this->request->getVar('check_out') . "+1 days")));
+            $status = $this->cekReservasi(
+                $this->request->getVar('suite'),
+                date("Y-m-d", strtotime($this->request->getVar('check_in'))),
+                date("Y-m-d", strtotime($this->request->getVar('check_out'))),
+                $status
+            );
 
-            $interval = \DateInterval::createFromDateString('1 day');
-            $daterange = new \DatePeriod($checkin, $interval, $checkout);
+            if ($status) {
+                $harga_weekday = $this->kategori_harga->where('id_suite', $this->request->getVar('suite'))->where('nama', 'weekday')->first()['harga'];
+                $harga_weekend = $this->kategori_harga->where('id_suite', $this->request->getVar('suite'))->where('nama', 'weekend')->first()['harga'];
 
-            $data = [];
-            $total = 0;
-            foreach ($daterange as $date) {
-                $sub = 0;
-                if ($this->isWeekend($date->format("Y-m-d"))) {
-                    $sub = $harga_weekend;
-                    $status = 'weekend';
-                } else if (!$this->isWeekend($date->format("Y-m-d"))) {
-                    $sub = $harga_weekday;
-                    $status = 'weekday';
+                $checkin =  new \DateTime($this->request->getVar('check_in'));
+                $checkout =  new \DateTime($this->request->getVar('check_out'));
+
+                $interval = \DateInterval::createFromDateString('1 day');
+                $daterange = new \DatePeriod($checkin, $interval, $checkout);
+
+                $data = [];
+                $total = 0;
+                foreach ($daterange as $date) {
+                    $sub = 0;
+
+                    if ($this->request->getVar('keluarga')) {
+                        $sub = $this->kategori_harga->where('id_suite',$this->request->getVar('suite'))->where('nama','keluarga')->first()['harga'];
+                        $status = 'keluarga';
+                    } else {
+                        $cek = $this->harga->where('id_suite',$this->request->getVar('suite'))->where('tanggal',$date->format("Y-m-d"))->first();
+                        if($cek){
+                            $sub = $cek['harga'];
+                            $status = 'peak day';
+                        }else if ($this->isWeekend($date->format("Y-m-d"))) {
+                            $sub = $harga_weekend;
+                            $status = 'weekend';
+                        } else if (!$this->isWeekend($date->format("Y-m-d"))) {
+                            $sub = $harga_weekday;
+                            $status = 'weekday';
+                        }
+                    }
+
+                    $total += $sub;
+                    array_push($data, [$date->format("Y-m-d"), $sub, $status]);
                 }
-                $total += $sub;
-                array_push($data, [$date->format("Y-m-d"), $sub, $status]);
-            }
 
-            $this->data['suite'] = $this->suite->find($this->request->getVar('suite'))['nama'];
-            $this->data['suite_id'] = $this->request->getVar('suite');
-            $this->data['check_in'] = $this->request->getVar('check_in');
-            $this->data['check_out'] = $this->request->getVar('check_out');
-            $this->data['malam'] = $checkout->diff($checkin)->format("%a");
-            $this->data['total'] = $total;
-            $this->data['datas'] = $data;
+                $this->data['suite'] = $this->suite->find($this->request->getVar('suite'))['nama'];
+                $this->data['suite_id'] = $this->request->getVar('suite');
+                $this->data['check_in'] = $this->request->getVar('check_in');
+                $this->data['check_out'] = $this->request->getVar('check_out');
+                $this->data['malam'] = $checkout->diff($checkin)->format("%a");
+                $this->data['total'] = $total;
+                $this->data['datas'] = $data;
+                $this->data['id_u'] = $id_u;
+                $this->data['keluarga'] = $this->request->getVar('keluarga') ? $this->request->getVar('keluarga') : 0;
 
-            if (!empty($this->request->getVar('id'))) {
-                $this->data['id'] = $this->request->getVar('id');
+                if (!empty($this->request->getVar('id'))) {
+                    $this->data['id'] = $this->request->getVar('id');
+                } else {
+                    $this->data['id'] = "";
+                }
+
+                return view('app/reservasi/konfirmasi', $this->data);
             } else {
-                $this->data['id'] = "";
+                throw new \Exception("Suite tidak tersedia pada tanggal tersebut. mohon pilih tanggal yang lain.");
             }
-
-            return view('app/reservasi/konfirmasi', $this->data);
         } catch (\Exception $e) {
             session()->setFlashdata('error', $e->getMessage());
             return redirect()->to('/app/reservasi/tambah')->withInput(); //->with('validation', $this->validator);
@@ -148,14 +202,16 @@ class ReservasiController extends BaseController
     {
         try {
             $id_r = $this->request->getVar('id_r');
+            $id_u = $this->request->getVar('id_u') == "0" ? $this->session->get('id') : $this->request->getVar('id_u');
             if (empty($id_r)) {
                 $this->reservasi->insert([
                     'id' => $this->generateInvoice(),
                     'id_suite' => $this->request->getVar('suite'),
-                    'id_user' => $this->session->get('id'),
+                    'id_user' => $id_u,
                     'check_in' => $this->request->getVar('check_in'),
                     'check_out' => $this->request->getVar('check_out'),
                     'harga' => $this->request->getVar('total'),
+                    'keluarga' => $this->request->getVar('keluarga'),
                     'status' => 1,
                 ]);
                 session()->setFlashdata('success', "Reservasi berhasil ditambah.");
@@ -178,12 +234,13 @@ class ReservasiController extends BaseController
     public function detail($id)
     {
         $reservasi = $this->reservasi->find($id);
+        $user = $this->user->find($reservasi['id_user']);
 
-        $harga_weekday = $this->harga->where('id_suite', $reservasi['id_suite'])->where('nama', 'weekday')->first()['harga'];
-        $harga_weekend = $this->harga->where('id_suite', $reservasi['id_suite'])->where('nama', 'weekend')->first()['harga'];
+        $harga_weekday = $this->kategori_harga->where('id_suite', $reservasi['id_suite'])->where('nama', 'weekday')->first()['harga'];
+        $harga_weekend = $this->kategori_harga->where('id_suite', $reservasi['id_suite'])->where('nama', 'weekend')->first()['harga'];
 
         $checkin =  new \DateTime($reservasi['check_in']);
-        $checkout =  new \DateTime(date('Y-m-d', strtotime($reservasi['check_out'] . "+1 days")));
+        $checkout =  new \DateTime($reservasi['check_out']);
 
         $interval = \DateInterval::createFromDateString('1 day');
         $daterange = new \DatePeriod($checkin, $interval, $checkout);
@@ -192,13 +249,23 @@ class ReservasiController extends BaseController
         $total = 0;
         foreach ($daterange as $date) {
             $sub = 0;
-            if ($this->isWeekend($date->format("Y-m-d"))) {
-                $sub = $harga_weekend;
-                $status = 'weekend';
-            } else if (!$this->isWeekend($date->format("Y-m-d"))) {
-                $sub = $harga_weekday;
-                $status = 'weekday';
+            if ($reservasi['keluarga'] == "1") {
+                $sub = $this->kategori_harga->where('id_suite',$reservasi['id_suite'])->where('nama','keluarga')->first()['harga'];
+                $status = 'keluarga';
+            } else {
+                $cek = $this->harga->where('id_suite',$reservasi['id_suite'])->where('tanggal',$date->format("Y-m-d"))->first();
+                if($cek){
+                    $sub = $cek['harga'];
+                    $status = 'peak day';
+                }else if ($this->isWeekend($date->format("Y-m-d"))) {
+                    $sub = $harga_weekend;
+                    $status = 'weekend';
+                } else if (!$this->isWeekend($date->format("Y-m-d"))) {
+                    $sub = $harga_weekday;
+                    $status = 'weekday';
+                }
             }
+
             $total += $sub;
             array_push($data, [$date->format("Y-m-d"), $sub, $status]);
         }
@@ -218,10 +285,11 @@ class ReservasiController extends BaseController
         $this->data['total'] = $total;
         $this->data['datas'] = $data;
         $this->data['reservasi'] = $reservasi;
+        $this->data['user'] = $user;
 
-        $cek1 = $this->pembayaran->select('sum(jumlah) as jumlah')->where('id_reservasi', $id)->where('status',2)->first();
+        $cek1 = $this->pembayaran->select('sum(jumlah) as jumlah')->where('id_reservasi', $id)->where('status', 2)->first();
         $this->data['sudah'] = $cek1['jumlah'] ? $cek1['jumlah'] : 0;
-        $cek2 = $this->pembayaran->select('sum(jumlah) as jumlah')->where('id_reservasi', $id)->where('status',1)->first();
+        $cek2 = $this->pembayaran->select('sum(jumlah) as jumlah')->where('id_reservasi', $id)->where('status', 1)->first();
         $this->data['nunggu'] = $cek2['jumlah'] ? $cek2['jumlah'] : 0;
         $this->data['kurang'] = $reservasi['harga'] - $this->data['sudah'];
         $this->data['pembayarans'] = $this->pembayaran->where('id_reservasi', $id)->orderBy('created_at', 'desc')->findAll();
@@ -271,5 +339,25 @@ class ReservasiController extends BaseController
         }
         date_default_timezone_set('Asia/Jakarta');
         return 'RES' . date('dmy') . $kd;
+    }
+
+    function cekReservasi($suite, $cekin, $cekout, $status)
+    {
+        $cekreservasis = $this->reservasi
+            ->whereIn('status', [2, 3, 4])
+            ->where('id_suite', $suite)
+            ->findAll();
+        // dd($suite);
+        foreach ($cekreservasis as $reservasi) {
+            $n1 = date('Y-m-d', strtotime($reservasi['check_in']));
+            $n2 = date('Y-m-d', strtotime($reservasi['check_out']));
+            if (($cekin >= $n1) && ($cekin <= $n2)) {
+                $status = false;
+            }
+            if (($cekout >= $n1) && ($cekout <= $n2)) {
+                $status = false;
+            }
+        }
+        return $status;
     }
 }

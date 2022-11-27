@@ -32,6 +32,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 col-lg-3 mb-4">
+                        <label class="mb-2">Pemesan</label>
+                        <h5><?= $user['nama']; ?></h5>
+                    </div>
+                    <div class="col-12"></div>
+                    <div class="col-12 col-lg-3 mb-4">
                         <label class="mb-2">Kode</label>
                         <h5><?= $reservasi['id']; ?></h5>
                     </div>
@@ -39,6 +44,27 @@
                         <label class="mb-2">Suite</label>
                         <h5><?= $suite; ?></h5>
                         <input type="hidden" name="suite" value="<?= $suite_id; ?>">
+                    </div>
+                    <div class="col-12 col-lg-3 mb-4">
+                        <label class="mb-2">Status</label>
+                        <h5>
+                            <?php if ($reservasi['status'] == '1') { ?>
+                                <span class="badge badge-warning">Belum Bayar</span>
+                            <?php } else if ($reservasi['status'] == '2') { ?>
+                                <span class="badge badge-secondary">Belum Lunas</span>
+                            <?php } else if ($reservasi['status'] == '3') { ?>
+                                <span class="badge badge-info">Menunggu Konfirmasi</span>
+                            <?php } else if ($reservasi['status'] == '4') { ?>
+                                <span class="badge badge-success">Terkonfirmasi</span>
+                            <?php } else if ($reservasi['status'] == '5') { ?>
+                                <span class="badge badge-danger">Ditolak</span>
+                            <?php } else { ?>
+                                <span class="badge badge-warning">Belum bayar</span>
+                            <?php } ?>
+                        </h5>
+                        <?php if($reservasi['keluarga'] == "1"){ ?>
+                            <h5><span class="badge badge-secondary">Keluarga</span></h5>
+                        <?php } ?>
                     </div>
                     <div class="col-12"></div>
                     <div class="col-12 col-lg-3 mb-4">
@@ -155,7 +181,7 @@
                                         <?php if ($pembayaran['status'] == '1') { ?>
                                             <span class="badge badge-info">Menunggu Konfirmasi</span>
                                         <?php } else if ($pembayaran['status'] == '2') { ?>
-                                            <span class="badge badge-success">Lunas</span>
+                                            <span class="badge badge-success">Terkonfirmasi</span>
                                         <?php } else if ($pembayaran['status'] == '3') { ?>
                                             <span class="badge badge-danger">Ditolak</span>
                                         <?php } ?>

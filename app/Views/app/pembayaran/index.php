@@ -75,10 +75,10 @@
                                     <?php } ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url('/app/pembayaran/detail/'.$pembayaran['id']); ?>" class="btn btn-info btn-sm">Detail</a>
+                                    <a href="<?= base_url('/app/pembayaran/detail/' . $pembayaran['id']); ?>" class="btn btn-info btn-sm">Detail</a>
                                     <?php if (($session->get('level') == 1 || $session->get('level') == 2) && $pembayaran['status'] == '1') { ?>
-                                        <a href="<?= base_url('/app/pembayaran/konfirmasi/'.$pembayaran['id']); ?>" class="btn btn-success btn-sm">Konfirmasi</a>
-                                        <a href="<?= base_url('/app/pembayaran/tolak/'.$pembayaran['id']); ?>" class="btn btn-danger btn-sm">Tolak</a>
+                                        <a href="<?= base_url('/app/pembayaran/konfirmasi/' . $pembayaran['id']); ?>" class="btn btn-success btn-sm">Konfirmasi</a>
+                                        <a href="<?= base_url('/app/pembayaran/tolak/' . $pembayaran['id']); ?>" class="btn btn-danger btn-sm">Tolak</a>
                                     <?php } ?>
                                 </td>
                             </tr>

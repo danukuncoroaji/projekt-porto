@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Reservasi extends Model
+class Harga extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'reservasi';
+    protected $table            = 'harga';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id','id_user','id_suite','check_in','check_out','harga','status','keluarga'];
+    protected $allowedFields    = ['id','id_suite','id_kategori_harga','tanggal','harga'];
 
     // Dates
     protected $useTimestamps = true;

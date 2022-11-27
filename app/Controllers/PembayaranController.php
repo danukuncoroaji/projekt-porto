@@ -36,7 +36,7 @@ class PembayaranController extends BaseController
             $pembayarans = $this->pembayaran
             ->select('pembayaran.id,pembayaran.jumlah,pembayaran.kategori,pembayaran.id_reservasi,pembayaran.status,pembayaran.created_at')
             ->join('reservasi','pembayaran.id_reservasi = reservasi.id')
-            ->whereIn('reservasi.status',[2])
+            ->whereIn('reservasi.status',[2,3])
             ->where('pembayaran.id_user', $this->session->get('id'))
             ->orderBy('pembayaran.created_at','DESC')->findAll();
         }
@@ -52,7 +52,7 @@ class PembayaranController extends BaseController
             $pembayarans = $this->pembayaran
             ->select('pembayaran.id,pembayaran.jumlah,pembayaran.kategori,pembayaran.id_reservasi,pembayaran.status,pembayaran.created_at')
             ->join('reservasi','pembayaran.id_reservasi = reservasi.id')
-            ->whereIn('reservasi.status',[3,4])
+            ->whereIn('reservasi.status',[4,5])
             ->where('pembayaran.id_user', $this->session->get('id'))
             ->orderBy('pembayaran.created_at','DESC')->findAll();
         }
@@ -79,10 +79,22 @@ class PembayaranController extends BaseController
             ]);
 
             $pembayaran = $this->pembayaran->find($id);
+            $reservasi = $this->reservasi->find($pembayaran['id_reservasi']);
+            $total_bayar = $this->pembayaran
+                                ->select('sum(jumlah) as jumlah')
+                                ->where('id_reservasi',$pembayaran['id_reservasi'])
+                                ->where('status',2)
+                                ->whereNotIn('id',[$id])
+                                ->first();
+            $total_bayar = $total_bayar['jumlah'] > 0 ? $total_bayar['jumlah'] : 0;
 
-            $this->reservasi->update($pembayaran['id_reservasi'], [
-                'status' => 4
-            ]);
+            // dd($total_bayar + $pembayaran['jumlah']);
+
+            if(($total_bayar + $pembayaran['jumlah']) == $reservasi['harga']){
+                $this->reservasi->update($pembayaran['id_reservasi'], [
+                    'status' => 4
+                ]);
+            }
 
             session()->setFlashdata('success', "Pembayaran dikonfirmasi.");
             return redirect()->to('/app/pembayaran');
@@ -99,11 +111,11 @@ class PembayaranController extends BaseController
                 'status' => 3,
             ]);
 
-            $pembayaran = $this->pembayaran->find($id);
+            // $pembayaran = $this->pembayaran->find($id);
 
-            $this->reservasi->update($pembayaran['id_reservasi'], [
-                'status' => 5
-            ]);
+            // $this->reservasi->update($pembayaran['id_reservasi'], [
+            //     'status' => 5
+            // ]);
             
             session()->setFlashdata('success', "Pembayaran ditolak.");
             return redirect()->to('/app/pembayaran');

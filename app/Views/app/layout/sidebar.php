@@ -32,15 +32,7 @@
                     <a href="<?php echo base_url('/app/pembayaran'); ?>"><i class="material-icons-two-tone">payments</i>Pembayaran</a>
                 </li>
                 <li <?php if (str_contains(base_url(uri_string()), 'tanggal')) { ?> class="active-page" <?php } ?>>
-                    <a href="#"><i class="material-icons-two-tone">calendar_month</i>Tanggal dan Harga<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="<?php echo base_url('/app/tanggal'); ?>">List</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url('/app/tanggal/tambah'); ?>">Tambah</a>
-                        </li>
-                    </ul>
+                    <a href="<?php echo base_url('/app/tanggal'); ?>"><i class="material-icons-two-tone">calendar_month</i>Tanggal dan Harga</a>
                 </li>
                 <li <?php if (str_contains(base_url(uri_string()), 'customer')) { ?> class="active-page" <?php } ?>>
                     <a href="<?php echo base_url('/app/customer'); ?>"><i class="material-icons-two-tone">group</i>Customer</a>
