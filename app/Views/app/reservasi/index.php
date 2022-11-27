@@ -202,7 +202,7 @@
             businessHours: true,
             dayMaxEvents: true, // allow "more" link when too many events
             events: [
-                <? php
+                <?php
                     foreach($reservasis_1 as $reservasi) {
                     if($reservasi['status'] != 1){
                     ?>
@@ -212,7 +212,7 @@
             start: "<?= $reservasi['check_in'] ?>",
             end: "<?= date('Y-m-d',strtotime($reservasi['check_out'].' +1 days')); ?>"
         },
-                <? php }} ?>
+                <?php }} ?>
             ]
         });
 
