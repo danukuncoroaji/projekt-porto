@@ -127,71 +127,128 @@ class ReservasiController extends BaseController
                 $id_u = $this->request->getVar('customer');
             }
 
-            $status = true;
+            if ($this->request->getVar('suite') == "0") {
+                $suite = [1, 2];
+                $status = true;
+                foreach ($suite as $key => $value) {
+                    $status = $this->cekReservasi(
+                        $suite[$key],
+                        date("Y-m-d", strtotime($this->request->getVar('check_in'))),
+                        date("Y-m-d", strtotime($this->request->getVar('check_out'))),
+                        $status
+                    );
+                }
+                if ($status) {
 
-            $status = $this->cekReservasi(
-                $this->request->getVar('suite'),
-                date("Y-m-d", strtotime($this->request->getVar('check_in'))),
-                date("Y-m-d", strtotime($this->request->getVar('check_out'))),
-                $status
-            );
+                    $checkin =  new \DateTime($this->request->getVar('check_in'));
+                    $checkout =  new \DateTime($this->request->getVar('check_out'));
 
-            if ($status) {
-                $harga_weekday = $this->kategori_harga->where('id_suite', $this->request->getVar('suite'))->where('nama', 'weekday')->first()['harga'];
-                $harga_weekend = $this->kategori_harga->where('id_suite', $this->request->getVar('suite'))->where('nama', 'weekend')->first()['harga'];
+                    $interval = \DateInterval::createFromDateString('1 day');
+                    $daterange = new \DatePeriod($checkin, $interval, $checkout);
 
-                $checkin =  new \DateTime($this->request->getVar('check_in'));
-                $checkout =  new \DateTime($this->request->getVar('check_out'));
+                    $data = [];
+                    $total = 0;
 
-                $interval = \DateInterval::createFromDateString('1 day');
-                $daterange = new \DatePeriod($checkin, $interval, $checkout);
+                    foreach ($daterange as $date) {
+                        foreach ($suite as $key => $value) {
+                            $harga_weekday = $this->kategori_harga->where('id_suite', $suite[$key])->where('nama', 'weekday')->first()['harga'];
+                            $harga_weekend = $this->kategori_harga->where('id_suite', $suite[$key])->where('nama', 'weekend')->first()['harga'];
+                            $detailSuite = $this->suite->find($suite[$key]);
+                            $sub = 0;
 
-                $data = [];
-                $total = 0;
-                foreach ($daterange as $date) {
-                    $sub = 0;
+                            if ($this->request->getVar('keluarga')) {
+                                $sub = $this->kategori_harga->where('id_suite', $suite[$key])->where('nama', 'keluarga')->first()['harga'];
+                                $status = 'keluarga - ' . $detailSuite['nama'];
+                            } else {
+                                $cek = $this->harga->where('id_suite', $suite[$key])->where('tanggal', $date->format("Y-m-d"))->first();
+                                if ($cek) {
+                                    $sub = $cek['harga'];
+                                    $status = 'peak day - ' . $detailSuite['nama'];;
+                                } else if ($this->isWeekend($date->format("Y-m-d"))) {
+                                    $sub = $harga_weekend;
+                                    $status = 'weekend - ' . $detailSuite['nama'];;
+                                } else if (!$this->isWeekend($date->format("Y-m-d"))) {
+                                    $sub = $harga_weekday;
+                                    $status = 'weekday - ' . $detailSuite['nama'];;
+                                }
+                            }
 
-                    if ($this->request->getVar('keluarga')) {
-                        $sub = $this->kategori_harga->where('id_suite',$this->request->getVar('suite'))->where('nama','keluarga')->first()['harga'];
-                        $status = 'keluarga';
-                    } else {
-                        $cek = $this->harga->where('id_suite',$this->request->getVar('suite'))->where('tanggal',$date->format("Y-m-d"))->first();
-                        if($cek){
-                            $sub = $cek['harga'];
-                            $status = 'peak day';
-                        }else if ($this->isWeekend($date->format("Y-m-d"))) {
-                            $sub = $harga_weekend;
-                            $status = 'weekend';
-                        } else if (!$this->isWeekend($date->format("Y-m-d"))) {
-                            $sub = $harga_weekday;
-                            $status = 'weekday';
+                            $total += $sub;
+                            array_push($data, [$date->format("Y-m-d"), $sub, $status]);
                         }
                     }
-
-                    $total += $sub;
-                    array_push($data, [$date->format("Y-m-d"), $sub, $status]);
-                }
-
-                $this->data['suite'] = $this->suite->find($this->request->getVar('suite'))['nama'];
-                $this->data['suite_id'] = $this->request->getVar('suite');
-                $this->data['check_in'] = $this->request->getVar('check_in');
-                $this->data['check_out'] = $this->request->getVar('check_out');
-                $this->data['malam'] = $checkout->diff($checkin)->format("%a");
-                $this->data['total'] = $total;
-                $this->data['datas'] = $data;
-                $this->data['id_u'] = $id_u;
-                $this->data['keluarga'] = $this->request->getVar('keluarga') ? $this->request->getVar('keluarga') : 0;
-
-                if (!empty($this->request->getVar('id'))) {
-                    $this->data['id'] = $this->request->getVar('id');
+                    $this->data['suite'] = "Hapsari & Prameswari";
+                    $this->data['suite_id'] = "0";
                 } else {
-                    $this->data['id'] = "";
+                    throw new \Exception("Suite tidak tersedia pada tanggal tersebut. mohon pilih tanggal yang lain.");
                 }
-
-                return view('app/reservasi/konfirmasi', $this->data);
             } else {
-                throw new \Exception("Suite tidak tersedia pada tanggal tersebut. mohon pilih tanggal yang lain.");
+                $status = true;
+
+                $status = $this->cekReservasi(
+                    $this->request->getVar('suite'),
+                    date("Y-m-d", strtotime($this->request->getVar('check_in'))),
+                    date("Y-m-d", strtotime($this->request->getVar('check_out'))),
+                    $status
+                );
+
+                if ($status) {
+                    $harga_weekday = $this->kategori_harga->where('id_suite', $this->request->getVar('suite'))->where('nama', 'weekday')->first()['harga'];
+                    $harga_weekend = $this->kategori_harga->where('id_suite', $this->request->getVar('suite'))->where('nama', 'weekend')->first()['harga'];
+
+                    $checkin =  new \DateTime($this->request->getVar('check_in'));
+                    $checkout =  new \DateTime($this->request->getVar('check_out'));
+
+                    $interval = \DateInterval::createFromDateString('1 day');
+                    $daterange = new \DatePeriod($checkin, $interval, $checkout);
+
+                    $data = [];
+                    $total = 0;
+                    foreach ($daterange as $date) {
+                        $sub = 0;
+
+                        if ($this->request->getVar('keluarga')) {
+                            $sub = $this->kategori_harga->where('id_suite', $this->request->getVar('suite'))->where('nama', 'keluarga')->first()['harga'];
+                            $status = 'keluarga';
+                        } else {
+                            $cek = $this->harga->where('id_suite', $this->request->getVar('suite'))->where('tanggal', $date->format("Y-m-d"))->first();
+                            if ($cek) {
+                                $sub = $cek['harga'];
+                                $status = 'peak day';
+                            } else if ($this->isWeekend($date->format("Y-m-d"))) {
+                                $sub = $harga_weekend;
+                                $status = 'weekend';
+                            } else if (!$this->isWeekend($date->format("Y-m-d"))) {
+                                $sub = $harga_weekday;
+                                $status = 'weekday';
+                            }
+                        }
+
+                        $total += $sub;
+                        array_push($data, [$date->format("Y-m-d"), $sub, $status]);
+                    }
+
+                    $this->data['suite'] = $this->suite->find($this->request->getVar('suite'))['nama'];
+                    $this->data['suite_id'] = $this->request->getVar('suite');
+                } else {
+                    throw new \Exception("Suite tidak tersedia pada tanggal tersebut. mohon pilih tanggal yang lain.");
+                }
             }
+            $this->data['check_in'] = $this->request->getVar('check_in');
+            $this->data['check_out'] = $this->request->getVar('check_out');
+            $this->data['malam'] = $checkout->diff($checkin)->format("%a");
+            $this->data['total'] = $total;
+            $this->data['datas'] = $data;
+            $this->data['id_u'] = $id_u;
+            $this->data['keluarga'] = $this->request->getVar('keluarga') ? $this->request->getVar('keluarga') : 0;
+
+            if (!empty($this->request->getVar('id'))) {
+                $this->data['id'] = $this->request->getVar('id');
+            } else {
+                $this->data['id'] = "";
+            }
+            // dd($this->data);
+            return view('app/reservasi/konfirmasi', $this->data);
         } catch (\Exception $e) {
             session()->setFlashdata('error', $e->getMessage());
             return redirect()->to('/app/reservasi/tambah')->withInput(); //->with('validation', $this->validator);
@@ -201,28 +258,79 @@ class ReservasiController extends BaseController
     public function store()
     {
         try {
-            $id_r = $this->request->getVar('id_r');
             $id_u = $this->request->getVar('id_u') == "0" ? $this->session->get('id') : $this->request->getVar('id_u');
-            if (empty($id_r)) {
-                $this->reservasi->insert([
-                    'id' => $this->generateInvoice(),
-                    'id_suite' => $this->request->getVar('suite'),
-                    'id_user' => $id_u,
-                    'check_in' => $this->request->getVar('check_in'),
-                    'check_out' => $this->request->getVar('check_out'),
-                    'harga' => $this->request->getVar('total'),
-                    'keluarga' => $this->request->getVar('keluarga'),
-                    'status' => 1,
-                ]);
-                session()->setFlashdata('success', "Reservasi berhasil ditambah.");
+            if ($this->request->getVar('suite') == "0") {
+                $suite = [1,2];
+                foreach ($suite as $key => $value) {
+
+                    $harga_weekday = $this->kategori_harga->where('id_suite', $suite[$key])->where('nama', 'weekday')->first()['harga'];
+                    $harga_weekend = $this->kategori_harga->where('id_suite', $suite[$key])->where('nama', 'weekend')->first()['harga'];
+
+                    $checkin =  new \DateTime($this->request->getVar('check_in'));
+                    $checkout =  new \DateTime($this->request->getVar('check_out'));
+
+                    $interval = \DateInterval::createFromDateString('1 day');
+                    $daterange = new \DatePeriod($checkin, $interval, $checkout);
+
+                    $data = [];
+                    $total = 0;
+                    foreach ($daterange as $date) {
+                        $sub = 0;
+
+                        if ($this->request->getVar('keluarga')) {
+                            $sub = $this->kategori_harga->where('id_suite', $suite[$key])->where('nama', 'keluarga')->first()['harga'];
+                            $status = 'keluarga';
+                        } else {
+                            $cek = $this->harga->where('id_suite', $suite[$key])->where('tanggal', $date->format("Y-m-d"))->first();
+                            if ($cek) {
+                                $sub = $cek['harga'];
+                                $status = 'peak day';
+                            } else if ($this->isWeekend($date->format("Y-m-d"))) {
+                                $sub = $harga_weekend;
+                                $status = 'weekend';
+                            } else if (!$this->isWeekend($date->format("Y-m-d"))) {
+                                $sub = $harga_weekday;
+                                $status = 'weekday';
+                            }
+                        }
+
+                        $total += $sub;
+                    }
+
+                    $this->reservasi->insert([
+                        'id' => $this->generateInvoice(),
+                        'id_suite' => $suite[$key],
+                        'id_user' => $id_u,
+                        'check_in' => $this->request->getVar('check_in'),
+                        'check_out' => $this->request->getVar('check_out'),
+                        'harga' => $total,
+                        'keluarga' => $this->request->getVar('keluarga'),
+                        'status' => 1,
+                    ]);
+                }
             } else {
-                $this->reservasi->update($id_r, [
-                    'id_suite' => $this->request->getVar('suite'),
-                    'check_in' => $this->request->getVar('check_in'),
-                    'check_out' => $this->request->getVar('check_out'),
-                    'harga' => $this->request->getVar('total'),
-                ]);
-                session()->setFlashdata('success', "Reservasi berhasil diubah.");
+                $id_r = $this->request->getVar('id_r');
+                if (empty($id_r)) {
+                    $this->reservasi->insert([
+                        'id' => $this->generateInvoice(),
+                        'id_suite' => $this->request->getVar('suite'),
+                        'id_user' => $id_u,
+                        'check_in' => $this->request->getVar('check_in'),
+                        'check_out' => $this->request->getVar('check_out'),
+                        'harga' => $this->request->getVar('total'),
+                        'keluarga' => $this->request->getVar('keluarga'),
+                        'status' => 1,
+                    ]);
+                    session()->setFlashdata('success', "Reservasi berhasil ditambah.");
+                } else {
+                    $this->reservasi->update($id_r, [
+                        'id_suite' => $this->request->getVar('suite'),
+                        'check_in' => $this->request->getVar('check_in'),
+                        'check_out' => $this->request->getVar('check_out'),
+                        'harga' => $this->request->getVar('total'),
+                    ]);
+                    session()->setFlashdata('success', "Reservasi berhasil diubah.");
+                }
             }
             return redirect()->to('/app/reservasi');
         } catch (\Exception $e) {
@@ -250,14 +358,14 @@ class ReservasiController extends BaseController
         foreach ($daterange as $date) {
             $sub = 0;
             if ($reservasi['keluarga'] == "1") {
-                $sub = $this->kategori_harga->where('id_suite',$reservasi['id_suite'])->where('nama','keluarga')->first()['harga'];
+                $sub = $this->kategori_harga->where('id_suite', $reservasi['id_suite'])->where('nama', 'keluarga')->first()['harga'];
                 $status = 'keluarga';
             } else {
-                $cek = $this->harga->where('id_suite',$reservasi['id_suite'])->where('tanggal',$date->format("Y-m-d"))->first();
-                if($cek){
+                $cek = $this->harga->where('id_suite', $reservasi['id_suite'])->where('tanggal', $date->format("Y-m-d"))->first();
+                if ($cek) {
                     $sub = $cek['harga'];
                     $status = 'peak day';
-                }else if ($this->isWeekend($date->format("Y-m-d"))) {
+                } else if ($this->isWeekend($date->format("Y-m-d"))) {
                     $sub = $harga_weekend;
                     $status = 'weekend';
                 } else if (!$this->isWeekend($date->format("Y-m-d"))) {
