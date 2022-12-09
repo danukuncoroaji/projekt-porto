@@ -427,6 +427,9 @@ class ReservasiController extends BaseController
         }
     }
 
+    public function citak($id){
+    }
+
     function isWeekend($date)
     {
         $weekDay = date('w', strtotime($date));
