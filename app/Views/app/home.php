@@ -201,6 +201,9 @@
                             <?php
                             $i = 1;
                             foreach ($laporans as $reservasi) { ?>
+                                <tr>
+                                    <td colspan="12" class="bg-secondary text-center"><?= $reservasi['bulan'] ?></td>
+                                </tr>
                                 <?php foreach ($reservasi['data'] as $data) { ?>
                                     <tr>
                                         <td><?= $i ?></td>
@@ -211,7 +214,7 @@
                                         <td><?= $data['suite'] ?></td>
                                         <td><?= $data['check_in'] ?></td>
                                         <td><?= $data['check_out'] ?></td>
-                                        <td class="currency"><?= $data['harga'] ?></td>
+                                        <td class="currency text-end"><?= $data['harga'] ?></td>
                                         <td>
                                             <?php if ($data['status'] == '1') { ?>
                                                 <span class="badge badge-warning">Belum Bayar</span>
@@ -232,6 +235,13 @@
                                     </tr>
                                 <?php $i++;
                                 } ?>
+                                <tr>
+                                    <td colspan="8" class="text-end">Total</td>
+                                    <td class="currency text-end"><?= $reservasi['total'] ?></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             <?php } ?>
                         </tbody>
                     </table>
