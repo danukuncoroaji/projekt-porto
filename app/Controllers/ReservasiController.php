@@ -46,14 +46,16 @@ class ReservasiController extends BaseController
         if ($this->level == 1) {
             $reservasis = $this->reservasi
                 ->orderBy('check_in', 'DESC')
-                ->where('DATE(check_out) > ', date('Y-m-d'))
-                ->orderBy('check_in', 'DESC')
+                // ->where('DATE(check_out) > ', date('Y-m-d'))
+                ->orderBy('created_at', 'DESC')
                 ->findAll();
         } else if ($this->level == 3) {
             $reservasis = $this->reservasi
                 ->where('id_user', $this->session->get('id'))
-                ->where('DATE(check_out) > ', date('Y-m-d'))
-                ->orderBy('check_in', 'DESC')->findAll();
+                // ->where('DATE(check_out) > ', date('Y-m-d'))
+                // ->orderBy('check_in', 'DESC')
+                ->orderBy('created_at', 'DESC')
+                ->findAll();
         }
         foreach ($reservasis as $key => $value) {
             $reservasis[$key]['suite_name'] = $this->suite->find($reservasis[$key]['id_suite'])['nama'];
