@@ -174,93 +174,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Laporan</h5>
-                </div>
-                <div class="card-body">
-                    <table class="table" id="laporan">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Customer id</th>
-                                <th>Nama</th>
-                                <th>No HP</th>
-                                <th>No Invoice</th>
-                                <th>Suites</th>
-                                <th>Tanggal Check in</th>
-                                <th>Tanggal Check out</th>
-                                <th>Harga</th>
-                                <th>Status</th>
-                                <th>Tanggal Transaksi</th>
-                                <th>Keterangan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $i = 1;
-                            foreach ($laporans as $reservasi) { ?>
-                                <tr>
-                                    <td colspan="12" class="bg-secondary text-center"><?= $reservasi['bulan'] ?></td>
-                                </tr>
-                                <?php foreach ($reservasi['data'] as $data) { ?>
-                                    <tr>
-                                        <td><?= $i ?></td>
-                                        <td><?= $data['id_user'] ?></td>
-                                        <td><?= $data['nama'] ?></td>
-                                        <td><?= $data['no_hp'] ?></td>
-                                        <td><?= $data['id'] ?></td>
-                                        <td><?= $data['suite'] ?></td>
-                                        <td><?= $data['check_in'] ?></td>
-                                        <td><?= $data['check_out'] ?></td>
-                                        <td class="currency text-end"><?= $data['harga'] ?></td>
-                                        <td>
-                                            <?php if ($data['status'] == '1') { ?>
-                                                <span class="badge badge-warning">Belum Bayar</span>
-                                            <?php } else if ($data['status'] == '2') { ?>
-                                                <span class="badge badge-secondary">Belum Lunas</span>
-                                            <?php } else if ($data['status'] == '3') { ?>
-                                                <span class="badge badge-info">Menunggu Konfirmasi</span>
-                                            <?php } else if ($data['status'] == '4') { ?>
-                                                <span class="badge badge-success">Terkonfirmasi</span>
-                                            <?php } else if ($data['status'] == '5') { ?>
-                                                <span class="badge badge-danger">Ditolak</span>
-                                            <?php } else { ?>
-                                                <span class="badge badge-warning">Belum bayar</span>
-                                            <?php } ?>
-                                        </td>
-                                        <td><?= $data['created_at'] ?></td>
-                                        <td><?= $data['keluarga'] == 0 ? "" : "Keluarga"; ?></td>
-                                    </tr>
-                                <?php $i++;
-                                } ?>
-                                <tr>
-                                    <td colspan="8" class="text-end">Total</td>
-                                    <td class="currency text-end"><?= $reservasi['total'] ?></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="card-footer">
-                    <a class="btn btn-success" onclick="cetak()"><i class="material-icons">print</i> Cetak</a>
-                </div>
-            </div>
-            <script>
-                function cetak() {
-                    $('#laporan').printThis({
-                        importCSS: true, // to import the page css
-                        importStyle: true, // to import <style>css here will be imported !</style> the stylesheets (bootstrap included !)
-                        loadCSS: true, // to import style="The css writed Here will be imported !"
-                        canvas: true // only if you Have image/Charts ... 
-                    });
-                }
-            </script>
-        </div>
     </div>
     <style>
         canvas {
@@ -299,15 +212,7 @@
         const ctx_pengunjung = document.getElementById('chart_pengunjung').getContext('2d');
         const pengunjung = new Chart(ctx_pengunjung, {
             type: 'bar',
-            data: {
-                "labels": ["1 Nov", "2 Nov", "3 Nov", "4 Nov", "5 Nov", "6 Nov", "7 Nov", "8 Nov", "9 Nov", "10 Nov", "11 Nov", "12 Nov", "13 Nov", "14 Nov", "15 Nov", "16 Nov", "17 Nov", "18 Nov", "19 Nov", "20 Nov", "21 Nov", "22 Nov", "23 Nov", "24 Nov", "25 Nov", "26 Nov", "27 Nov", "28 Nov", "29 Nov", "30 Nov"],
-                "datasets": [{
-                    "label": "Orang",
-                    "type": "bar",
-                    "data": [0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    "backgroundColor": "rgba(52, 152, 219,1.0)"
-                }]
-            },
+            data: <?= $grafik_pengunjung ?>,
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
@@ -360,6 +265,39 @@
                     "sortDescending": ": activate to sort column descending"
                 }
             }
+        });
+    </script>
+<?php } else if ($session->get('level') == 3) { ?>
+    <div class="card">
+        <div class="card-body">
+            <div id="calendar"></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialDate: "<?= date('Y-m-d') ?>",
+                editable: false,
+                selectable: true,
+                businessHours: true,
+                dayMaxEvents: true, // allow "more" link when too many events
+                events: [
+                    <?php
+                    foreach ($reservasis as $reservasi) {
+                        if ($reservasi['status'] != 1) {
+                    ?> {
+                                title: "<?= $reservasi['suite_name'] ?>",
+                                start: "<?= $reservasi['check_in'] ?>",
+                                end: "<?= date('Y-m-d', strtotime($reservasi['check_out'] . ' +1 days')); ?>"
+                            },
+                    <?php }
+                    } ?>
+                ]
+            });
+
+            calendar.render();
         });
     </script>
 <?php } ?>

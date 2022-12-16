@@ -14,7 +14,7 @@ class Galeri extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id','name','path','type','size'];
+    protected $allowedFields    = ['id','name','keterangan','path','type','size'];
 
     // Dates
     protected $useTimestamps = true;

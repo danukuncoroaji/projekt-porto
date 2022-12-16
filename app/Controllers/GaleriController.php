@@ -52,6 +52,7 @@ class GaleriController extends BaseController
                     $this->galeri->insert([
                         'name' => $name,
                         'path' => $path,
+                        'keterangan' => $this->request->getVar('keterangan'),
                         'size' => $file->getSizeByUnit('kb'),
                         'type' => $file->getClientMimeType(),
                     ]);

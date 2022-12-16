@@ -34,6 +34,9 @@
                 <li <?php if (str_contains(base_url(uri_string()), 'tanggal')) { ?> class="active-page" <?php } ?>>
                     <a href="<?php echo base_url('/app/tanggal'); ?>"><i class="material-icons-two-tone">calendar_month</i>Tanggal dan Harga</a>
                 </li>
+                <li <?php if (str_contains(base_url(uri_string()), 'laporan')) { ?> class="active-page" <?php } ?>>
+                    <a href="<?php echo base_url('/app/laporan'); ?>"><i class="material-icons-two-tone">task</i>Laporan</a>
+                </li>
                 <li <?php if (str_contains(base_url(uri_string()), 'customer')) { ?> class="active-page" <?php } ?>>
                     <a href="<?php echo base_url('/app/customer'); ?>"><i class="material-icons-two-tone">group</i>Customer</a>
                 </li>

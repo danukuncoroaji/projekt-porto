@@ -99,6 +99,9 @@ $routes->get('/app/reservasi/detail/(:any)', 'ReservasiController::detail/$1',['
 $routes->get('/app/reservasi/delete/(:any)', 'ReservasiController::delete/$1',['filter' => 'authGuard']);
 $routes->get('/app/reservasi/riwayat', 'ReservasiController::riwayat',['filter' => 'authGuard']);
 
+//laporan
+$routes->get('/app/laporan', 'LaporanController::index',['filter' => 'authGuard']);
+$routes->post('/app/laporan', 'LaporanController::filter',['filter' => 'authGuard']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
